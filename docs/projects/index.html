@@ -1,1298 +1,1015 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Lina Pérez">
-<meta name="dcterms.date" content="2024-03-01">
-
-<title>Lina María Pérez - Structure from Motion Application for Landslide Characterization and Monitoring</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+<!-- begin _includes/seo.html --><title>Structure from Motion Application for Landslide Characterization and Monitoring - Lina María Pérez</title>
+<meta name="description" content=".">
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../img/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "textbox",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<style>
 
-      .quarto-title-block .quarto-title-banner {
-        background-image: url(19-02-PC.png);
-background-size: cover;
-      }
-</style>
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Lina María Pérez">
+<meta property="og:title" content="Structure from Motion Application for Landslide Characterization and Monitoring">
+<meta property="og:url" content="http://localhost:4000/LinaAtTheMoment/projects/">
 
 
-</head>
+  <meta property="og:description" content=".">
 
-<body class="nav-fixed">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/favicon.png" alt="" class="navbar-logo">
-    </a>
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Lina María Pérez</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../projects/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../cv/index.html" rel="" target="">
- <span class="menu-text">CV</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/Mariali_P" rel="" target=""><i class="bi bi-twitter" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/linmapeerzg621/" rel="" target=""><i class="bi bi-linkedin" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="mailto:linamapg@gmail.com" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="email">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
-            <div class="quarto-navbar-tools">
-</div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title"><span style="color:black;">Structure from Motion Application for Landslide Characterization and Monitoring</span></h1>
-            <p class="subtitle lead">The 2023 Rosas Landslide Case Study, Cauca Colombia</p>
-                      </div>
-  </div>
-    
+
+  <meta property="og:image" content="http://localhost:4000/LinaAtTheMoment/assets/images/project1/19-02-PC.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-03-01T00:00:00+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/LinaAtTheMoment/projects/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/LinaAtTheMoment/feed.xml" type="application/atom+xml" rel="alternate" title="Lina María Pérez Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
   
-  <div class="quarto-title-meta">
+</script>
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Lina Pérez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">March 1, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
+<!-- For all browsers -->
+<link rel="stylesheet" href="/LinaAtTheMoment/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide" dir="ltr">
+    <nav class="skip-links">
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#study-area" id="toc-study-area" class="nav-link" data-scroll-target="#study-area">Study area</a></li>
-  <li><a href="#landslide-event-characterization" id="toc-landslide-event-characterization" class="nav-link" data-scroll-target="#landslide-event-characterization">Landslide event characterization</a>
-  <ul class="collapse">
-  <li><a href="#geology-and-failure-surface" id="toc-geology-and-failure-surface" class="nav-link" data-scroll-target="#geology-and-failure-surface">Geology and failure surface</a></li>
-  <li><a href="#rainfall-as-trigger-mechanism" id="toc-rainfall-as-trigger-mechanism" class="nav-link" data-scroll-target="#rainfall-as-trigger-mechanism">Rainfall as trigger mechanism</a></li>
-  </ul></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
-  <ul class="collapse">
-  <li><a href="#point-cloud-generation" id="toc-point-cloud-generation" class="nav-link" data-scroll-target="#point-cloud-generation">Point Cloud Generation</a></li>
-  <li><a href="#image-loading-and-chunks-definition" id="toc-image-loading-and-chunks-definition" class="nav-link" data-scroll-target="#image-loading-and-chunks-definition">Image loading and chunks definition</a></li>
-  <li><a href="#photos-alignment-and-filtering" id="toc-photos-alignment-and-filtering" class="nav-link" data-scroll-target="#photos-alignment-and-filtering">Photos alignment and filtering</a></li>
-  <li><a href="#dense-point-cloud-generation" id="toc-dense-point-cloud-generation" class="nav-link" data-scroll-target="#dense-point-cloud-generation">Dense Point Cloud generation</a></li>
-  <li><a href="#natural-points-definition-and-gnss-survey" id="toc-natural-points-definition-and-gnss-survey" class="nav-link" data-scroll-target="#natural-points-definition-and-gnss-survey">Natural points definition and GNSS survey</a></li>
-  <li><a href="#chunk-alignment" id="toc-chunk-alignment" class="nav-link" data-scroll-target="#chunk-alignment">Chunk alignment</a></li>
-  <li><a href="#pre-processing-and-global-registration" id="toc-pre-processing-and-global-registration" class="nav-link" data-scroll-target="#pre-processing-and-global-registration">Pre-processing and Global registration</a></li>
-  <li><a href="#icp-registration" id="toc-icp-registration" class="nav-link" data-scroll-target="#icp-registration">ICP registration</a></li>
-  </ul></li>
-  <li><a href="#key-project-insights" id="toc-key-project-insights" class="nav-link" data-scroll-target="#key-project-insights">Key project insights</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
   </ul>
 </nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/LinaAtTheMoment/">
+          Lina María Pérez
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/LinaAtTheMoment/my-projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/LinaAtTheMoment/cv/"
+                
+                
+              >CV</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/LinaAtTheMoment/about/"
+                
+                
+              >About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
     </div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
 
 
 
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/LinaAtTheMoment/assets/images/project1/19-02-PC.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Structure from Motion Application for Landslide Characterization and Monitoring
+
+        
+      </h1>
+      
+        <p class="page__lead"><h2>.</h2>
+</p>
+      
+      
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Structure from Motion Application for Landslide Characterization and Monitoring">
+    <meta itemprop="description" content=".">
+    <meta itemprop="datePublished" content="2024-03-01T00:00:00+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#introduction">Introduction</a></li><li><a href="#study-area">Study Area</a><ul><li><a href="#geological-setting">Geological Setting</a></li></ul></li><li><a href="#landslide-event-characterization">Landslide Event Characterization</a><ul><li><a href="#geology-and-failure-surface">Geology and Failure Surface</a></li><li><a href="#rainfall-as-trigger-mechanism">Rainfall as Trigger Mechanism</a></li></ul></li><li><a href="#methods">Methods</a><ul><li><a href="#point-cloud-generation">Point Cloud Generation</a></li><li><a href="#image-loading-and-chunks-definition">Image Loading and Chunks Definition</a></li><li><a href="#photos-alignment-and-filtering">Photos Alignment and Filtering</a></li><li><a href="#dense-point-cloud-generation">Dense Point Cloud Generation</a></li><li><a href="#natural-points-definition-and-gnss-survey">Natural Points Definition and GNSS Survey</a></li><li><a href="#chunk-alignment">Chunk Alignment</a></li><li><a href="#pre-processing-and-global-registration">Pre-processing and Global Registration</a></li><li><a href="#icp-registration">ICP Registration</a><ul><li><a href="#point-to-point-icp">Point-to-Point ICP</a></li></ul></li></ul></li><li><a href="#key-project-insights">Key Project Insights</a></li><li><a href="#references">References</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2>.</h2>
 
 <p>Landslides are natural disasters with devastating impacts on human communities. Like other natural hazards, their severity can escalate, especially with ongoing global climate change. Moreover, larger landslides can result in diverse forms of damage and, in the worst-case scenario, casualties. To address these challenges, advanced technologies such as UAV-based photogrammetry and LiDAR are currently being utilized to assess large landslides rapidly and cost-effectively. However, the precise georeferencing, co-registration, and alignment of UAV surveys collected from different devices with varying resolutions and coverage present significant challenges for data analysis. To tackle these challenges, this work explores different methods to ensure accuracy in the pre-processing of this type of data.</p>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>On January 9th, 2023, a catastrophic landslide severely impacted the upper basin of Chontaduro Creek, located in the municipality of Rosas-Cauca in southwestern Colombia (refer to <a href="#fig-sarea">Figure&nbsp;1</a>). This event caused extensive damage to the communities of La Soledad, Santa Clara, Párraga Viejo, and Chontaduro, resulting in the destruction of at least 150 homes and a significant portion of the Pan-American highway, which connects southern Colombia to the rest of the country. Inhabitants of the region reported their initial observations of instability on January 4th when they noticed small cracks with lengths ranging from 20 cm to 30 cm forming in the crown area near the Alfonso Córdoba school. However, it was not until the period between the afternoon of January 9th and the morning of January 10th that the landslide’s progression became starkly evident, leaving distinct markings on both the crown and flanks of the movement. Following this significant event, the landslide exhibited continuous and substantial activity until January 18th. By January 10th, the area affected by the mass movement had expanded to 64.72 hectares, and it further increased to 87.16 hectares by January 13th, ultimately reaching 89.12 hectares by January 18th.</p>
-<p>The Rosas landslide, situated in Colombia, has been closely monitored by several government institutions, including the <em>Unidad Nacional de Gestión del Riesgo</em> (UNGRD), the Geological Survey of Colombia (SGC), and the National Armed Forces. These agencies have conducted numerous UAV (Unmanned Aerial Vehicle) flights to monitor the ongoing evolution of the landslide. Over the past decade, there has been a notable increase in the utilization of remote sensing technology for landslide mapping and monitoring. This surge in usage has been complemented by significant improvements in the spatial resolution of remote sensing technologies, particularly with the introduction of laser scanning (both airborne and terrestrial) and unmanned aerial vehicles (UAVs) (<span class="citation" data-cites="niethammer2012uav">Niethammer et al. (<a href="#ref-niethammer2012uav" role="doc-biblioref">2012</a>)</span>). Earth observation methods are useful to produce detailed multi-temporal sets of images, orthophotos, and digital elevation models (DEMs). These products may provide insight into the flow kinematics such as flow rate, landslide expansion, and accumulation at the toe zone or retreating scarps. In addition, these new techniques allow volume calculations of the accumulated and removed material by the landslide and mapping of the topographic changes (<span class="citation" data-cites="lucieer2014mapping">Lucieer et al. (<a href="#ref-lucieer2014mapping" role="doc-biblioref">2014</a>)</span>).</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>On January 9th, 2023, a catastrophic landslide severely impacted the upper basin of Chontaduro Creek, located in the municipality of Rosas-Cauca in southwestern Colombia. This event caused extensive damage to the communities of La Soledad, Santa Clara, Párraga Viejo, and Chontaduro, resulting in the destruction of at least 150 homes and a significant portion of the Pan-American highway, which connects southern Colombia to the rest of the country. Inhabitants of the region reported their initial observations of instability on January 4th when they noticed small cracks with lengths ranging from 20 cm to 30 cm forming in the crown area near the Alfonso Córdoba school. However, it was not until the period between the afternoon of January 9th and the morning of January 10th that the landslide’s progression became starkly evident, leaving distinct markings on both the crown and flanks of the movement. Following this significant event, the landslide exhibited continuous and substantial activity until January 18th. By January 10th, the area affected by the mass movement had expanded to 64.72 hectares, and it further increased to 87.16 hectares by January 13th, ultimately reaching 89.12 hectares by January 18th.</p>
+
+<p>The Rosas landslide, situated in Colombia, has been closely monitored by several government institutions, including the <em>Unidad Nacional de Gestión del Riesgo</em> (UNGRD), the Geological Survey of Colombia (SGC), and the National Armed Forces. These agencies have conducted numerous UAV (Unmanned Aerial Vehicle) flights to monitor the ongoing evolution of the landslide. Over the past decade, there has been a notable increase in the utilization of remote sensing technology for landslide mapping and monitoring. This surge in usage has been complemented by significant improvements in the spatial resolution of remote sensing technologies, particularly with the introduction of laser scanning (both airborne and terrestrial) and unmanned aerial vehicles (UAVs). Earth observation methods are useful to produce detailed multi-temporal sets of images, orthophotos, and digital elevation models (DEMs). These products may provide insight into the flow kinematics such as flow rate, landslide expansion, and accumulation at the toe zone or retreating scarps. In addition, these new techniques allow volume calculations of the accumulated and removed material by the landslide and mapping of the topographic changes.</p>
+
 <p>Furthermore, recent advances in photogrammetric image processing and computer vision have resulted in a technique known as Structure from Motion (SfM). Highly detailed 3D models can be obtained from overlapping multi-view photography with SfM algorithms. While spaceborne and airborne remote sensing techniques are commonly employed for landslide research, these methods may lack the flexibility offered by the novel remote sensing platform of UAVs. When combined with UAV technology, Structure from Motion (SfM) can provide a cost-effective and efficient means of acquiring dense and accurate 3D data of the Earth’s surface. In this study, we investigate various methods for processing the extensive UAV data acquired for the Rosas landslide, aiming to produce accurately georeferenced and aligned 3D models.</p>
-<p><em>This internship was supervised by Prof.&nbsp;Dr.&nbsp;Bodo Bookhagen.</em></p>
-</section>
-<section id="study-area" class="level1">
-<h1>Study area</h1>
-<p>The Rosas landslide occurred in the rural district of La Soledad, located within the municipality of Rosas-Cauca, situated in the southwestern region of Colombia. This region lies within the Patía Valley intercordilleran depression, nestled between the Western Cordillera and the Central Cordillera of Colombia. The primary drainage network affected is that of the Chontaduro creek, a tributary of the Esmita River, which is part of the upper Patía River basin (refer to <a href="#fig-sarea">Figure&nbsp;1</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-sarea" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="RosasStudArea.jpg" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Shaded relief map of study area, showing major rivers, towns and a multi-temporal landslide inventory, sourced from <span class="citation" data-cites="sgc2020">SGC (<a href="#ref-sgc2020" role="doc-biblioref">2020</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The study area is situated within the western range of the Colombian Andes, a region characterized by its susceptibility to landslides. This vulnerability arises from a combination of factors including steep terrain, adverse weather conditions, and the presence of soils derived from volcanic deposits originating from the Sotará volcanic complex. A comprehensive study conducted by the Geological Survey of Colombia-SGC (<span class="citation" data-cites="sgc2020">SGC (<a href="#ref-sgc2020" role="doc-biblioref">2020</a>)</span>), examined the development and distribution of landslide in the region. Their investigation identified a total of 273 landslide events occurring within the municipality of Rosas during the period spanning from 1990 to 2019. Of these occurrences, five were deemed severe, leading to tragic casualties, substantial economic losses, and considerable damage to critical infrastructure.</p>
-<p>As depicted in Figure <a href="#fig-sarea">Figure&nbsp;1</a>, the area has a historical record of being affected by landslides of varying magnitudes. However, the Rosas landslide, which is the focal point of our study, stands out as the largest landslide identified in the surrounding region since 1990.</p>
-<p><strong>Geological setting</strong></p>
-<p>The geological setting of the study area is profoundly influenced by its location within the Northern Andes, where the convergence of three tectonic plates—the Nazca, Caribbean, and South American plates—gives rise to active N-NE faulting within the Andean block. This convergence, with the Nazca plate moving eastward relative to northwestern South America at a rate of 6 cm/yr, leads to the formation of the Colombia-Trench to the west and the mountain range of the Colombian Andes <span class="citation" data-cites="pulido2003seismotectonics">Pulido (<a href="#ref-pulido2003seismotectonics" role="doc-biblioref">2003</a>)</span>. Within the Colombian Andes, three distinct mountain ranges—the Western, Central, and Eastern Cordillera—converge southward into a unified range, shaped by deformation and faulting resulting from the interaction of these tectonic plates <span class="citation" data-cites="taboada2000geodynamics">Taboada et al. (<a href="#ref-taboada2000geodynamics" role="doc-biblioref">2000</a>)</span>. The study area, encompassing the upper Patía River basin, is situated at the southern Colombian Andes’ convergence point between the Western and Central Cordilleras. Here, the Western Cordillera rises dramatically from the Pacific Coastal Plain on its western flank, while to the east, it is separated from the Central Cordillera by the Cauca-Patia valleys spanning a distance of approximately 500 km. The Cauca-Patia valley, resembling a graben-like structure, is characterized by an asymmetric tilt and is filled with Tertiary-Quaternary continental clastics and volcanics. Bounded by the Cauca fault zone to the west and the Romeral fault zone to the east, this depression effectively separates the oceanic Western Cordillera from the ancient crystalline Central Cordillera (<a href="#fig-geomap">Figure&nbsp;2</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-geomap" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="GELOGY.jpg" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Geological map of the study area. Sourced from <span class="citation" data-cites="sgc2020">SGC (<a href="#ref-sgc2020" role="doc-biblioref">2020</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="landslide-event-characterization" class="level1">
-<h1>Landslide event characterization</h1>
-<p>The Rosas mass movement, situated within the micro-basin of Chontaduro creek, is characterized as an active rotational landslide of a complex nature, exhibiting retrogressive and widening behavior. This landslide initiation point is positioned 900 meters from the summit of Broncazo Hill and 700 meters from its base (<a href="#fig-annrain">Figure&nbsp;3</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-annrain" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landslide1.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Panoramic view of Rosas landslide. Sourced from <span class="citation" data-cites="InformeVisitaEmergencia">SGC (<a href="#ref-InformeVisitaEmergencia" role="doc-biblioref">2023</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The landslide displays distinct patterns of movement and failure mechanisms across its various sections. In the uppermost region, known as the crown, where the movement commences, displacements are attributed to a rotational failure mechanism. Moving to the flanks, which constitute the lateral sides of the landslide, translational faults predominate. Within the body of the landslide, one observes intense deformation, sinking, and the formation of cracks, both transverse and parallel to the primary crown (<a href="#fig-landetail">Figure&nbsp;4</a>). In the lowermost part of the movement, termed the toe, situated furthest from the crown, translational landslides, soil block falls, and flows of earth, debris, and mud have been observed. These flows are channeled through areas with lower slopes. The dynamic interplay of these movements signifies the complex nature of the landslide, with its activity and behavior evolving in response to variations in water availability in the upper part of the basin.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-landetail" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="landslide-detail.jpg" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Identifiable characteristics across the crown, body, and toe of the landslide: 1) A curved concave rupture surface creating a scarp measuring up to 20 meters in height. 2) Presence of tilted blocks, subsidence, and formation of cracks. 3) Occurrence of translational slides and debris flows.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<section id="geology-and-failure-surface" class="level2">
-<h2 class="anchored" data-anchor-id="geology-and-failure-surface">Geology and failure surface</h2>
-<p>The initial phase of the mass movement was characterized by a rotational slide, evidenced by a semicircular curved and concave upward rupture surface. This phase exposed a steep slope scarp reaching heights of up to 40 meters (<span class="citation" data-cites="InformeVisitaEmergencia">SGC (<a href="#ref-InformeVisitaEmergencia" role="doc-biblioref">2023</a>)</span>), composed of alternating layers of residual ash soils and pyroclastic flows from the Galeón Formation. Subsequently, a portion of the body adjacent to the crown tilted backward due to the concavity of the failure surface, resulting in ground subsidence. When the central region of the landslide became fully saturated with water, copious flows of earth and rock emanated from both sides of the landslide, as well as from its center.</p>
-<p>In the microbasin of Chontaduro creek, a geological sequence unfolds, comprising both epiclastic and volcanic rocks attributed to the Galeón Formation (TQpg). Notably, these formations are prominently exposed in areas such as Cerro Broncazo and its environs, encompassing the Quilcacé and Esmita rivers. In these regions, the volcaniclastic deposits can attain substantial thicknesses, reaching up to 800 meters (SGC rosas 25k).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-litho" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Slide4.jpg" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Lithological sequence and unit details observed at the crown of the landslide</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>The scarp of the crown provided a clear view of the sequential arrangement of materials comprising the mobilized mass. Illustrated in <a href="#fig-litho">Figure&nbsp;5</a> and <a href="#fig-waterhor">Figure&nbsp;6</a>, from bottom to top, the lithological units are delineated as follows:</p>
+
+<p><em>This internship was supervised by Prof. Dr. Bodo Bookhagen.</em></p>
+
+<h2 id="study-area">Study Area</h2>
+
+<p>The Rosas landslide occurred in the rural district of La Soledad, located within the municipality of Rosas-Cauca, situated in the southwestern region of Colombia. This region lies within the Patía Valley intercordilleran depression, nestled between the Western Cordillera and the Central Cordillera of Colombia. The primary drainage network affected is that of the Chontaduro creek, a tributary of the Esmita River, which is part of the upper Patía River basin.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/RosasStudArea.jpg" alt="Shaded relief map of study area, showing major rivers, towns and a multi-temporal landslide inventory" />
+<em>Shaded relief map of study area, showing major rivers, towns and a multi-temporal landslide inventory</em></p>
+
+<p>The study area is situated within the western range of the Colombian Andes, a region characterized by its susceptibility to landslides. This vulnerability arises from a combination of factors including steep terrain, adverse weather conditions, and the presence of soils derived from volcanic deposits originating from the Sotará volcanic complex. A comprehensive study conducted by the Geological Survey of Colombia-SGC examined the development and distribution of landslide in the region. Their investigation identified a total of 273 landslide events occurring within the municipality of Rosas during the period spanning from 1990 to 2019. Of these occurrences, five were deemed severe, leading to tragic casualties, substantial economic losses, and considerable damage to critical infrastructure.</p>
+
+<p>As depicted in the map above, the area has a historical record of being affected by landslides of varying magnitudes. However, the Rosas landslide, which is the focal point of our study, stands out as the largest landslide identified in the surrounding region since 1990.</p>
+
+<h3 id="geological-setting">Geological Setting</h3>
+
+<p>The geological setting of the study area is profoundly influenced by its location within the Northern Andes, where the convergence of three tectonic plates—the Nazca, Caribbean, and South American plates—gives rise to active N-NE faulting within the Andean block. This convergence, with the Nazca plate moving eastward relative to northwestern South America at a rate of 6 cm/yr, leads to the formation of the Colombia-Trench to the west and the mountain range of the Colombian Andes. Within the Colombian Andes, three distinct mountain ranges—the Western, Central, and Eastern Cordillera—converge southward into a unified range, shaped by deformation and faulting resulting from the interaction of these tectonic plates. The study area, encompassing the upper Patía River basin, is situated at the southern Colombian Andes’ convergence point between the Western and Central Cordilleras. Here, the Western Cordillera rises dramatically from the Pacific Coastal Plain on its western flank, while to the east, it is separated from the Central Cordillera by the Cauca-Patia valleys spanning a distance of approximately 500 km. The Cauca-Patia valley, resembling a graben-like structure, is characterized by an asymmetric tilt and is filled with Tertiary-Quaternary continental clastics and volcanics. Bounded by the Cauca fault zone to the west and the Romeral fault zone to the east, this depression effectively separates the oceanic Western Cordillera from the ancient crystalline Central Cordillera.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/GELOGY.jpg" alt="Geological map of the study area" />
+<em>Geological map of the study area</em></p>
+
+<h2 id="landslide-event-characterization">Landslide Event Characterization</h2>
+
+<p>The Rosas mass movement, situated within the micro-basin of Chontaduro creek, is characterized as an active rotational landslide of a complex nature, exhibiting retrogressive and widening behavior. This landslide initiation point is positioned 900 meters from the summit of Broncazo Hill and 700 meters from its base.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/landslide1.png" alt="Panoramic view of Rosas landslide" />
+<em>Panoramic view of Rosas landslide</em></p>
+
+<p>The landslide displays distinct patterns of movement and failure mechanisms across its various sections. In the uppermost region, known as the crown, where the movement commences, displacements are attributed to a rotational failure mechanism. Moving to the flanks, which constitute the lateral sides of the landslide, translational faults predominate. Within the body of the landslide, one observes intense deformation, sinking, and the formation of cracks, both transverse and parallel to the primary crown. In the lowermost part of the movement, termed the toe, situated furthest from the crown, translational landslides, soil block falls, and flows of earth, debris, and mud have been observed. These flows are channeled through areas with lower slopes. The dynamic interplay of these movements signifies the complex nature of the landslide, with its activity and behavior evolving in response to variations in water availability in the upper part of the basin.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/landslide-detail.jpg" alt="Identifiable characteristics across the crown, body, and toe of the landslide: 1) A curved concave rupture surface creating a scarp measuring up to 20 meters in height. 2) Presence of tilted blocks, subsidence, and formation of cracks. 3) Occurrence of translational slides and debris flows." />
+<em>Identifiable characteristics across the crown, body, and toe of the landslide</em></p>
+
+<h3 id="geology-and-failure-surface">Geology and Failure Surface</h3>
+
+<p>The initial phase of the mass movement was characterized by a rotational slide, evidenced by a semicircular curved and concave upward rupture surface. This phase exposed a steep slope scarp reaching heights of up to 40 meters, composed of alternating layers of residual ash soils and pyroclastic flows from the Galeón Formation. Subsequently, a portion of the body adjacent to the crown tilted backward due to the concavity of the failure surface, resulting in ground subsidence. When the central region of the landslide became fully saturated with water, copious flows of earth and rock emanated from both sides of the landslide, as well as from its center.</p>
+
+<p>In the microbasin of Chontaduro creek, a geological sequence unfolds, comprising both epiclastic and volcanic rocks attributed to the Galeón Formation (TQpg). Notably, these formations are prominently exposed in areas such as Cerro Broncazo and its environs, encompassing the Quilcacé and Esmita rivers. In these regions, the volcaniclastic deposits can attain substantial thicknesses, reaching up to 800 meters.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/Slide4.jpg" alt="Lithological sequence and unit details observed at the crown of the landslide" />
+<em>Lithological sequence and unit details observed at the crown of the landslide</em></p>
+
+<p>The scarp of the crown provided a clear view of the sequential arrangement of materials comprising the mobilized mass. From bottom to top, the lithological units are delineated as follows:</p>
+
 <ul>
-<li>The base layer showcases rocks attributed to well-selected, sandy, hyperconcentrated lahar deposits, linked with the Galeón formation.</li>
-<li>Directly above lies a layer of clast-supported pyroclastic flows, featuring rounded volcanic rock clasts with subtle orientation indicative of flow, ensconced within a reddish sandy volcanic ash matrix.</li>
-<li>Progressing upward, there exist lenticular alluvial and colluvial deposits, resulting from the erosion and transportation of various units within the Galeón formation.</li>
-<li>Finally, at the apex of the sequence, residual soils stemming from both transport deposits and pyroclastic flows are evident.</li>
+  <li>The base layer showcases rocks attributed to well-selected, sandy, hyperconcentrated lahar deposits, linked with the Galeón formation.</li>
+  <li>Directly above lies a layer of clast-supported pyroclastic flows, featuring rounded volcanic rock clasts with subtle orientation indicative of flow, ensconced within a reddish sandy volcanic ash matrix.</li>
+  <li>Progressing upward, there exist lenticular alluvial and colluvial deposits, resulting from the erosion and transportation of various units within the Galeón formation.</li>
+  <li>Finally, at the apex of the sequence, residual soils stemming from both transport deposits and pyroclastic flows are evident.</li>
 </ul>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-waterhor" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Slide3.jpg" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Panoramic view of landslide crown scarp. Blue dashed line depicting the water horizon</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>As depicted in <a href="#fig-waterhor">Figure&nbsp;6</a>, a highly saturated surface conducive to water flow manifests between the hyperconcentrated flow layer and the pyroclastic flow layer. The permeability of the latter, coupled with the slight permeability of the underlying layer, facilitates water flow across this contact surface. Exhibiting horizontal continuity, this surface could be associated with the sliding surface of the mass movement.Recurrence of the poorly permeable hyperconcentrated lahar layer is notable at the base of the slide, indicating a seamless continuation of the water-saturated surface from the crown to the landslide’s base.</p>
-<p>Furthermore, noteworthy is the close proximity of the landslide’s crown to the ‘Alto de las Yerbas’ fault line, as referenced in the technical report on Landslide Hazard Zoning by the <span class="citation" data-cites="sgc2020">SGC (<a href="#ref-sgc2020" role="doc-biblioref">2020</a>)</span>, detailed in <a href="#fig-geoland">Figure&nbsp;7</a>. Findings from the present study imply that structural and lithological factors, compounded by intense rainfall, were the primary catalysts for the occurrence of this significant landslide.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-geoland" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="geolandslide.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Geological surface units and main fault in the landslide site. Sourced from <span class="citation" data-cites="sgc2020">SGC (<a href="#ref-sgc2020" role="doc-biblioref">2020</a>)</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="rainfall-as-trigger-mechanism" class="level2">
-<h2 class="anchored" data-anchor-id="rainfall-as-trigger-mechanism">Rainfall as trigger mechanism</h2>
-<p>According to the Atlas of Colombia (<span class="citation" data-cites="igacatlas">IGAC (<a href="#ref-igacatlas" role="doc-biblioref">2012</a>)</span>), the region experiences an average annual rainfall of 2,000 mm at the summit of the Central Cordillera and 3,000 mm at the summit of the Western Cordillera. Rainfall patterns indicate a distinct summer season during June, July, August, and September, followed by a rainy season during the remaining months. The precipitation data for the study area was obtained from the Párraga weather station (Station Code: 52010050), which is managed by IDEAM (Instituto de Hidrología, Meteorología y Estudios Ambientales de Colombia). The time series analyzed encompasses 33 years of recorded data, spanning from 1990 to 2023 (<a href="#fig-monthly">Figure&nbsp;8</a> shows the last 20 years of data). As shown in <a href="#fig-monthly">Figure&nbsp;8</a>, the study area experiences two distinct rainy seasons: the first occurs from January to May, characterized by relatively lower rainfall compared to the second rainy season, which typically occurs between October and December.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/Slide3.jpg" alt="Panoramic view of landslide crown scarp. Blue dashed line depicting the water horizon" />
+<em>Panoramic view of landslide crown scarp. Blue dashed line depicting the water horizon</em></p>
+
+<p>As depicted above, a highly saturated surface conducive to water flow manifests between the hyperconcentrated flow layer and the pyroclastic flow layer. The permeability of the latter, coupled with the slight permeability of the underlying layer, facilitates water flow across this contact surface. Exhibiting horizontal continuity, this surface could be associated with the sliding surface of the mass movement. Recurrence of the poorly permeable hyperconcentrated lahar layer is notable at the base of the slide, indicating a seamless continuation of the water-saturated surface from the crown to the landslide’s base.</p>
+
+<p>Furthermore, noteworthy is the close proximity of the landslide’s crown to the ‘Alto de las Yerbas’ fault line. Findings from the present study imply that structural and lithological factors, compounded by intense rainfall, were the primary catalysts for the occurrence of this significant landslide.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/geolandslide.png" alt="Geological surface units and main fault in the landslide site" />
+<em>Geological surface units and main fault in the landslide site</em></p>
+
+<h3 id="rainfall-as-trigger-mechanism">Rainfall as Trigger Mechanism</h3>
+
+<p>According to the Atlas of Colombia, the region experiences an average annual rainfall of 2,000 mm at the summit of the Central Cordillera and 3,000 mm at the summit of the Western Cordillera. Rainfall patterns indicate a distinct summer season during June, July, August, and September, followed by a rainy season during the remaining months. The precipitation data for the study area was obtained from the Párraga weather station (Station Code: 52010050), which is managed by IDEAM (Instituto de Hidrología, Meteorología y Estudios Ambientales de Colombia). The time series analyzed encompasses 33 years of recorded data, spanning from 1990 to 2023. As shown below, the study area experiences two distinct rainy seasons: the first occurs from January to May, characterized by relatively lower rainfall compared to the second rainy season, which typically occurs between October and December.</p>
+
 <p>An important observation to highlight is that within the last 20 years of recorded data, the rainfall during the rainy season of December 2022, preceding the event, was notably exceptional. In November 2022 alone, precipitation levels reached a record high of up to 720 mm, marking it as the highest recorded rainfall within the observed period.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-monthly" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="monthlyPre.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Visualization of total monthly rainfall at the Parraga meteorological station spanning the past 20 years. Blue bars represent months with rainfall above the mean, while green bars denote months with precipitation below the mean.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>In the other hand, the daily time series recorded at the Párraga station exhibits a range of maximum daily precipitation values, varying between 0 mm and 95 mm. The highest recorded value, 94.8 mm, was documented on January 9th, which coincided with the onset of the landslide event (<a href="#fig-acc">Figure&nbsp;9</a>). The cumulative rainfall data was computed over the last 60 days leading up to the triggering of the landslide, revealing an impressive total rainfall accumulation of 2309.3 millimeters recorded up to January 9, 2023 (<a href="#fig-acc">Figure&nbsp;9</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-acc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="DailyRainfall.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Total daily and accumulated rainfall at the Parraga meteorological station.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="methods" class="level1">
-<h1>Methods</h1>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/monthlyPre.png" alt="Visualization of total monthly rainfall at the Parraga meteorological station spanning the past 20 years. Blue bars represent months with rainfall above the mean, while green bars denote months with precipitation below the mean." />
+<em>Monthly rainfall at the Parraga meteorological station</em></p>
+
+<p>The daily time series recorded at the Párraga station exhibits a range of maximum daily precipitation values, varying between 0 mm and 95 mm. The highest recorded value, 94.8 mm, was documented on January 9th, which coincided with the onset of the landslide event. The cumulative rainfall data was computed over the last 60 days leading up to the triggering of the landslide, revealing an impressive total rainfall accumulation of 2309.3 millimeters recorded up to January 9, 2023.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/DailyRainfall.png" alt="Total daily and accumulated rainfall at the Parraga meteorological station." />
+<em>Daily and accumulated rainfall at the Parraga meteorological station</em></p>
+
+<h2 id="methods">Methods</h2>
+
 <p>Aerial digital photographs of the landslide were captured on multiple occasions between January 9th and March 18th. Predominantly, these flights were conducted at an altitude of 250 meters. Over the span of 17 days, a total of 22 flights were executed by three organizations specializing in risk management and emergency disaster response: Unidad Nacional para la Gestión del Riesgo (UNGRD), Servicio Geológico Colombiano (SGC), and Policía Nacional (PNAL). Despite the involvement of various institutions, uniformity was maintained in the equipment used, ensuring consistent resolution in the photographs. However, aspects such as flight altitude, coverage area, flight plan design, and the number of captured images exhibited significant variation.</p>
+
 <p>A further challenge encountered in the data acquisition process was the georeferencing of the flights. During the initial flights, markers were not employed, leading to difficulties in precise location mapping. To address this, on May 18th, a set of markers was installed to ensure at least one flight could be accurately georeferenced. However, these newly placed markers proved too small to be discernible in images taken from higher altitudes. Consequently, to enhance the overall georeferencing accuracy of all flights, an independent survey was executed as part of this study, utilizing natural points as reference markers in the final survey.</p>
-<section id="point-cloud-generation" class="level2">
-<h2 class="anchored" data-anchor-id="point-cloud-generation">Point Cloud Generation</h2>
-<p>The Structure from Motion (SfM) method uses algorithms to identify matching features in a series of overlapping digital images and calculates camera location and orientation from the differential positions of multiple matched features. From these calculations, overlapping imagery is then used to reconstruct a “sparse” or “coarse” 3D point cloud model of the photographed object or surface or scene. <span class="citation" data-cites="brook2019monitoring">Brook et al. (<a href="#ref-brook2019monitoring" role="doc-biblioref">2019</a>)</span>. The software <em>Agisoft Metashape</em> was used to undertake the SfM processing. In Metashape, the SFM processing comprises three key steps <span class="citation" data-cites="MetashapeManual2023">Agisoft (<a href="#ref-MetashapeManual2023" role="doc-biblioref">2023</a>)</span>:</p>
-<ol type="1">
-<li><em>Alignment</em>: Involves aerial triangulation and bundle block adjustment, where the software identifies feature points on images, matches them into tie points and determine camera positions, resulting in a tie point cloud and camera positions for depth map determination and 3D reconstruction.</li>
-<li><em>Surface Generation</em>: Creates a 3D mesh or 2.5D digital elevation model (DEM), combining photogrammetric depth maps and LiDAR data, which can be textured and exported for various applications.</li>
-<li><em>Orthomosaic Creation</em>: Generates a georeferenced orthomosaic by projecting images onto a chosen surface (DEM or mesh), useful for mapping and analysis, including vegetation indices in multispectral imagery projects.</li>
+
+<h3 id="point-cloud-generation">Point Cloud Generation</h3>
+
+<p>The Structure from Motion (SfM) method uses algorithms to identify matching features in a series of overlapping digital images and calculates camera location and orientation from the differential positions of multiple matched features. From these calculations, overlapping imagery is then used to reconstruct a “sparse” or “coarse” 3D point cloud model of the photographed object or surface or scene. The software <em>Agisoft Metashape</em> was used to undertake the SfM processing. In Metashape, the SFM processing comprises three key steps:</p>
+
+<ol>
+  <li><strong>Alignment</strong>: Involves aerial triangulation and bundle block adjustment, where the software identifies feature points on images, matches them into tie points and determine camera positions, resulting in a tie point cloud and camera positions for depth map determination and 3D reconstruction.</li>
+  <li><strong>Surface Generation</strong>: Creates a 3D mesh or 2.5D digital elevation model (DEM), combining photogrammetric depth maps and LiDAR data, which can be textured and exported for various applications.</li>
+  <li><strong>Orthomosaic Creation</strong>: Generates a georeferenced orthomosaic by projecting images onto a chosen surface (DEM or mesh), useful for mapping and analysis, including vegetation indices in multispectral imagery projects.</li>
 </ol>
-<p>In this study we adopted the workflow implemented in Agisoft Metashape, described in the User Manual v2.0 <span class="citation" data-cites="MetashapeManual2023">Agisoft (<a href="#ref-MetashapeManual2023" role="doc-biblioref">2023</a>)</span>. The parameters used are described n the following sections.</p>
-</section>
-<section id="image-loading-and-chunks-definition" class="level2">
-<h2 class="anchored" data-anchor-id="image-loading-and-chunks-definition">Image loading and chunks definition</h2>
-<p>Sixteen distinct chunks were produced by importing photographs from selected flights (refer to Table <a href="#tbl-chunks">Table&nbsp;1</a>), of which five met key selection criteria: a sufficient quantity of photographs, high image quality characterized by proper exposure and sharpness, and extensive coverage of the landslide area. This careful selection was necessary as some flights were tasked with monitoring more restricted sectors of the mass movement, targeting specific areas such as the crown or the Pan-American Highway. For comprehensive area coverage and improved model resolution during that timeframe, photographs from January 18th and 19th were merged in one single chunk.</p>
-<div class="table">
-<div id="tbl-chunks" class="anchored">
-<table class="table">
-<caption>Table&nbsp;1: Point clouds generated in <em>Agisoft</em></caption>
-<thead>
-<tr class="header">
-<th>Chunks</th>
-<th>Cameras</th>
-<th>Points</th>
-<th>Markers</th>
-<th>Processed</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1/14/2023</td>
-<td>1491</td>
-<td>880,613</td>
-<td>19 markers</td>
-<td>X</td>
-</tr>
-<tr class="even">
-<td>1/17/2023</td>
-<td>567</td>
-<td>436,618</td>
-<td>4 markers</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>1/18-19/2023</td>
-<td>878</td>
-<td>1,666,175</td>
-<td>17 markers</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1/19/2023</td>
-<td>369</td>
-<td>387,054</td>
-<td></td>
-<td>X</td>
-</tr>
-<tr class="odd">
-<td>1/20/2023</td>
-<td>196</td>
-<td>194,101</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>1/26/2023</td>
-<td>332</td>
-<td>352,573</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>1/30/2023</td>
-<td>321</td>
-<td>351,487</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2/3/2023</td>
-<td>418</td>
-<td>403.19</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2/6/2023</td>
-<td>331</td>
-<td>336,810</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2/11/2023</td>
-<td>576</td>
-<td>627,729</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2/16/2023</td>
-<td>329</td>
-<td>346,862</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2/19/2023</td>
-<td>442</td>
-<td>459,783</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3/6/2023</td>
-<td>330</td>
-<td>324,661</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>3/21/2023</td>
-<td>331</td>
-<td>352.909</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3/30/2023</td>
-<td>328</td>
-<td>327,605</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>5/18/2023</td>
-<td>333</td>
-<td>243,261</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+
+<p>In this study we adopted the workflow implemented in Agisoft Metashape, described in the User Manual v2.0. The parameters used are described in the following sections.</p>
+
+<h3 id="image-loading-and-chunks-definition">Image Loading and Chunks Definition</h3>
+
+<p>Sixteen distinct chunks were produced by importing photographs from selected flights, of which five met key selection criteria: a sufficient quantity of photographs, high image quality characterized by proper exposure and sharpness, and extensive coverage of the landslide area. This careful selection was necessary as some flights were tasked with monitoring more restricted sectors of the mass movement, targeting specific areas such as the crown or the Pan-American Highway. For comprehensive area coverage and improved model resolution during that timeframe, photographs from January 18th and 19th were merged in one single chunk.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Chunks</th>
+      <th>Cameras</th>
+      <th>Points</th>
+      <th>Markers</th>
+      <th>Processed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1/14/2023</td>
+      <td>1491</td>
+      <td>880,613</td>
+      <td>19 markers</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>1/17/2023</td>
+      <td>567</td>
+      <td>436,618</td>
+      <td>4 markers</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1/18-19/2023</td>
+      <td>878</td>
+      <td>1,666,175</td>
+      <td>17 markers</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1/19/2023</td>
+      <td>369</td>
+      <td>387,054</td>
+      <td> </td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>1/20/2023</td>
+      <td>196</td>
+      <td>194,101</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1/26/2023</td>
+      <td>332</td>
+      <td>352,573</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1/30/2023</td>
+      <td>321</td>
+      <td>351,487</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2/3/2023</td>
+      <td>418</td>
+      <td>403,190</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2/6/2023</td>
+      <td>331</td>
+      <td>336,810</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2/11/2023</td>
+      <td>576</td>
+      <td>627,729</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2/16/2023</td>
+      <td>329</td>
+      <td>346,862</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2/19/2023</td>
+      <td>442</td>
+      <td>459,783</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3/6/2023</td>
+      <td>330</td>
+      <td>324,661</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3/21/2023</td>
+      <td>331</td>
+      <td>352,909</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3/30/2023</td>
+      <td>328</td>
+      <td>327,605</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5/18/2023</td>
+      <td>333</td>
+      <td>243,261</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
 </table>
-</div>
-</div>
-</section>
-<section id="photos-alignment-and-filtering" class="level2">
-<h2 class="anchored" data-anchor-id="photos-alignment-and-filtering">Photos alignment and filtering</h2>
-<p>In each chunk, the photographs underwent an alignment process with the accuracy setting set to high, utilizing equipment source coordinates as a reference point. Camera optimization was conducted, selecting the estimation of the covariance of tie points. Subsequently, apparent outliers were removed from the sparse cloud manually to diminish potential reconstruction inaccuracies. Additional refinement was carried out by filtering based on tie point covariance and uncertainties, employing Metashape’s integrated Python scripting capabilities for a more precise adjustment (<a href="#fig-covar">Figure&nbsp;10</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-covar" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="covariance.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Tie point covariances obtained after filterin</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="dense-point-cloud-generation" class="level2">
-<h2 class="anchored" data-anchor-id="dense-point-cloud-generation">Dense Point Cloud generation</h2>
-<p>For all chosen chunks, a dense 3D point cloud was constructed employing high-quality settings and mild depth filtering. This detailed point cloud serves as the foundation for generating Digital Surface Models (DSM) and orthomosaics. Additional settings were selected to reuse depth maps, calculate point colors and calculate point confidence (<a href="#fig-dense">Figure&nbsp;11</a>).</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-dense" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="denseall.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;11: Dense point cloud for 14/01/2023</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="natural-points-definition-and-gnss-survey" class="level2">
-<h2 class="anchored" data-anchor-id="natural-points-definition-and-gnss-survey">Natural points definition and GNSS survey</h2>
-<p>To accurately reference the point clouds, a series of natural markers were established to guarantee high-precision (centimeter-level) localization that was readily identifiable in the field. Utilized reference points included distinct features such as sewer edges, fence corners, and light posts (see <a href="#fig-marker12">Figure&nbsp;12</a>). Out of the 27 natural markers delineated (see <a href="#fig-marker">Figure&nbsp;13</a>), only 21 were successfully surveyed on-site. The survey faced several challenges, including the demolition of referenced structures, obscuring of markers by debris or soil, and inaccessible locations of certain points. The coordinates for each marker were recorded using a Trimble SPS855 GNSS Modular Receiver.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-marker12" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="marker12.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;12: Example of a marker defined</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-marker" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="markers.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;13: Markers defined</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>Following the download of raw data from the Trimble receiver, the post-processing software GrafNav was employed. GrafNav is an advanced GNSS post-processing suite that supports kinematic and static analysis with an advanced processing engine for GPS, GLONASS, and BeiDou signals. To refine the data, corrections were applied using the Popayan station (POPA), which is the station nearest to the collection site. The required data were acquired from the Colombian open data portal (https://www.colombiaenmapas.gov.co/). Both the RINEX files from the field-surveyed markers and the permanent station were inputted into GrafNav to execute the correction process. The precision-adjusted positions of the markers are shown in <a href="#tbl-gnss">Table&nbsp;2</a> and <a href="#fig-gnssgraf">Figure&nbsp;14</a>.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-gnssgraf" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="GNSS_grafnav.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;14: Points depict the resulting standard deviation for horizontal and height measurements, while bars illustrate a quality metric established by GrafNav.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>As depicted in <a href="#fig-gnssgraf">Figure&nbsp;14</a>, both the resulting horizontal and vertical standard deviations are below 0.656 meters, with mean values of 0.26 and 0.14 meters, respectively. Achieving accuracy at the centimeter level indicates favorable results. However, a metric of quality provided by Grafnav offers additional insight. This metric assigns values as follows:</p>
+
+<p><em>Point clouds generated in Agisoft</em></p>
+
+<h3 id="photos-alignment-and-filtering">Photos Alignment and Filtering</h3>
+
+<p>In each chunk, the photographs underwent an alignment process with the accuracy setting set to high, utilizing equipment source coordinates as a reference point. Camera optimization was conducted, selecting the estimation of the covariance of tie points. Subsequently, apparent outliers were removed from the sparse cloud manually to diminish potential reconstruction inaccuracies. Additional refinement was carried out by filtering based on tie point covariance and uncertainties, employing Metashape’s integrated Python scripting capabilities for a more precise adjustment.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/covariance.png" alt="Tie point covariances obtained after filtering" />
+<em>Tie point covariances obtained after filtering</em></p>
+
+<h3 id="dense-point-cloud-generation">Dense Point Cloud Generation</h3>
+
+<p>For all chosen chunks, a dense 3D point cloud was constructed employing high-quality settings and mild depth filtering. This detailed point cloud serves as the foundation for generating Digital Surface Models (DSM) and orthomosaics. Additional settings were selected to reuse depth maps, calculate point colors and calculate point confidence.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/denseall.png" alt="Dense point cloud for 14/01/2023" />
+<em>Dense point cloud for 14/01/2023</em></p>
+
+<h3 id="natural-points-definition-and-gnss-survey">Natural Points Definition and GNSS Survey</h3>
+
+<p>To accurately reference the point clouds, a series of natural markers were established to guarantee high-precision (centimeter-level) localization that was readily identifiable in the field. Utilized reference points included distinct features such as sewer edges, fence corners, and light posts. Out of the 27 natural markers delineated, only 21 were successfully surveyed on-site. The survey faced several challenges, including the demolition of referenced structures, obscuring of markers by debris or soil, and inaccessible locations of certain points. The coordinates for each marker were recorded using a Trimble SPS855 GNSS Modular Receiver.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/marker12.png" alt="Example of a marker defined" />
+<em>Example of a marker defined</em></p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/markers.png" alt="Markers defined" />
+<em>Markers defined</em></p>
+
+<p>Following the download of raw data from the Trimble receiver, the post-processing software GrafNav was employed. GrafNav is an advanced GNSS post-processing suite that supports kinematic and static analysis with an advanced processing engine for GPS, GLONASS, and BeiDou signals. To refine the data, corrections were applied using the Popayan station (POPA), which is the station nearest to the collection site. The required data were acquired from the Colombian open data portal. Both the RINEX files from the field-surveyed markers and the permanent station were inputted into GrafNav to execute the correction process.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/GNSS_grafnav.png" alt="Points depict the resulting standard deviation for horizontal and height measurements, while bars illustrate a quality metric established by GrafNav." />
+<em>Points depict the resulting standard deviation for horizontal and height measurements</em></p>
+
+<p>As depicted above, both the resulting horizontal and vertical standard deviations are below 0.656 meters, with mean values of 0.26 and 0.14 meters, respectively. Achieving accuracy at the centimeter level indicates favorable results. However, a metric of quality provided by Grafnav offers additional insight. This metric assigns values as follows:</p>
+
 <ul>
-<li>Quality 1: Represents a fixed integer solution with excellent satellite geometry.</li>
-<li>Quality 2-3: Indicates either fixed integers with marginal geometry or converging float solutions.</li>
-<li>Quality 4-5: Suggests qualities akin to those of DGPS.</li>
-<li>Quality 6: Represents a coarse acquisition (C/A) only solution.</li>
+  <li><strong>Quality 1</strong>: Represents a fixed integer solution with excellent satellite geometry.</li>
+  <li><strong>Quality 2-3</strong>: Indicates either fixed integers with marginal geometry or converging float solutions.</li>
+  <li><strong>Quality 4-5</strong>: Suggests qualities akin to those of DGPS.</li>
+  <li><strong>Quality 6</strong>: Represents a coarse acquisition (C/A) only solution.</li>
 </ul>
-<p>The majority of solutions fall within the quality range of 2-3, with one solution (marker 1) exhibiting a very good quality of 1 and another (marker 10) displaying a poor quality of 6. All solutions showed satisfactory results and were subsequently utilized in the following step, which involvs the precise alignment of point clouds based on markers.</p>
-<div class="table">
-<div id="tbl-gnss" class="anchored">
-<table class="table">
-<caption>Table&nbsp;2: GNSS data corrected in Grafnav</caption>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Date</strong></th>
-<th>GPSTime</th>
-<th><strong>Easting</strong></th>
-<th><strong>Northing</strong></th>
-<th><strong>H-Ell</strong></th>
-<th><strong>H-MSL</strong></th>
-<th><strong>Q</strong></th>
-<th>SDHoriz</th>
-<th><strong>SDHeigh (m)</strong></th>
-<th><strong>Marker</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>8/09/2023</td>
-<td>32:23.0</td>
-<td>302995,460</td>
-<td>248590,161</td>
-<td>1514963</td>
-<td>1486998</td>
-<td>1</td>
-<td>0,016</td>
-<td>0,028</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>8/09/2023</td>
-<td>59:34.0</td>
-<td>302445,401</td>
-<td>247995,626</td>
-<td>1346507</td>
-<td>1318573</td>
-<td>3</td>
-<td>0,12</td>
-<td>0,072</td>
-<td>12</td>
-</tr>
-<tr class="odd">
-<td>8/09/2023</td>
-<td>32:47.0</td>
-<td>302540,380</td>
-<td>247938,191</td>
-<td>1342117</td>
-<td>1314170</td>
-<td>5</td>
-<td>0,559</td>
-<td>0,402</td>
-<td>13</td>
-</tr>
-<tr class="even">
-<td>8/09/2023</td>
-<td>50:24.0</td>
-<td>302928,080</td>
-<td>248596,004</td>
-<td>1508566</td>
-<td>1480608</td>
-<td>3</td>
-<td>0,18</td>
-<td>0,112</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>8/09/2023</td>
-<td>01:48.0</td>
-<td>302956,219</td>
-<td>248607,942</td>
-<td>1512854</td>
-<td>1484894</td>
-<td>4</td>
-<td>0,367</td>
-<td>0,129</td>
-<td>25</td>
-</tr>
-<tr class="even">
-<td>8/09/2023</td>
-<td>25:50.0</td>
-<td>302984,155</td>
-<td>248601,450</td>
-<td>1513498</td>
-<td>1485535</td>
-<td>5</td>
-<td>0,257</td>
-<td>0,13</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>8/10/2023</td>
-<td>53:34.0</td>
-<td>302155,060</td>
-<td>247741,470</td>
-<td>1338077</td>
-<td>1310161</td>
-<td>6</td>
-<td>0,291</td>
-<td>0,181</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td>8/10/2023</td>
-<td>26:29.0</td>
-<td>302045,545</td>
-<td>247650,392</td>
-<td>1328182</td>
-<td>1300273</td>
-<td>3</td>
-<td>0,347</td>
-<td>0,215</td>
-<td>21</td>
-</tr>
-<tr class="odd">
-<td>8/10/2023</td>
-<td>29:50.0</td>
-<td>302207,493</td>
-<td>247767,666</td>
-<td>1341687</td>
-<td>1313767</td>
-<td>2</td>
-<td>0,243</td>
-<td>0,138</td>
-<td>23</td>
-</tr>
-<tr class="even">
-<td>8/10/2023</td>
-<td>03:19.0</td>
-<td>302229,752</td>
-<td>247892,380</td>
-<td>1344103</td>
-<td>1316187</td>
-<td>3</td>
-<td>0,343</td>
-<td>0,217</td>
-<td>24</td>
-</tr>
-<tr class="odd">
-<td>8/10/2023</td>
-<td>10:53.0</td>
-<td>301981,062</td>
-<td>248881,942</td>
-<td>1547867</td>
-<td>1520018</td>
-<td>3</td>
-<td>0,263</td>
-<td>0,137</td>
-<td>26</td>
-</tr>
-<tr class="even">
-<td>8/10/2023</td>
-<td>58:14.0</td>
-<td>301798,636</td>
-<td>248108,698</td>
-<td>1446887</td>
-<td>1419024</td>
-<td>3</td>
-<td>0,19</td>
-<td>0,117</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>8/10/2023</td>
-<td>09:31.0</td>
-<td>301847,911</td>
-<td>248155,130</td>
-<td>1446869</td>
-<td>1419003</td>
-<td>3</td>
-<td>0,364</td>
-<td>0,186</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>8/10/2023</td>
-<td>31:22.0</td>
-<td>301868,008</td>
-<td>248170,170</td>
-<td>1446827</td>
-<td>1418960</td>
-<td>3</td>
-<td>0,147</td>
-<td>0,072</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>8/10/2023</td>
-<td>30:20.0</td>
-<td>301875,048</td>
-<td>248297,576</td>
-<td>1452434</td>
-<td>1424571</td>
-<td>3</td>
-<td>0,235</td>
-<td>0,161</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>8/10/2023</td>
-<td>00:47.0</td>
-<td>301968,070</td>
-<td>248386,332</td>
-<td>1451916</td>
-<td>1424048</td>
-<td>4</td>
-<td>0,235</td>
-<td>0,09</td>
-<td>9</td>
-</tr>
-<tr class="odd">
-<td>8/11/2023</td>
-<td>58:29.0</td>
-<td>301263,276</td>
-<td>246688,966</td>
-<td>1308378</td>
-<td>1280506</td>
-<td>4</td>
-<td>0,656</td>
-<td>0,64</td>
-<td>17</td>
-</tr>
-<tr class="even">
-<td>8/11/2023</td>
-<td>40:23.0</td>
-<td>301456,505</td>
-<td>246350,882</td>
-<td>1292738</td>
-<td>1264830</td>
-<td>2</td>
-<td>0,054</td>
-<td>0,055</td>
-<td>18</td>
-</tr>
-<tr class="odd">
-<td>8/11/2023</td>
-<td>04:19.0</td>
-<td>301430,773</td>
-<td>246394,964</td>
-<td>1296034</td>
-<td>1268131</td>
-<td>2</td>
-<td>0,077</td>
-<td>0,064</td>
-<td>19</td>
-</tr>
-<tr class="even">
-<td>8/11/2023</td>
-<td>30:58.0</td>
-<td>301364,741</td>
-<td>246498,245</td>
-<td>1300102</td>
-<td>1272211</td>
-<td>4</td>
-<td>0,364</td>
-<td>0,259</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>8/11/2023</td>
-<td>34:20.0</td>
-<td>301586,893</td>
-<td>247430,776</td>
-<td>1319567</td>
-<td>1291696</td>
-<td>5</td>
-<td>0,604</td>
-<td>0,323</td>
-<td>27</td>
-</tr>
-</tbody>
+
+<p>The majority of solutions fall within the quality range of 2-3, with one solution (marker 1) exhibiting a very good quality of 1 and another (marker 10) displaying a poor quality of 6. All solutions showed satisfactory results and were subsequently utilized in the following step, which involves the precise alignment of point clouds based on markers.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>GPSTime</th>
+      <th>Easting</th>
+      <th>Northing</th>
+      <th>H-Ell</th>
+      <th>H-MSL</th>
+      <th>Q</th>
+      <th>SDHoriz</th>
+      <th>SDHeight (m)</th>
+      <th>Marker</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>8/09/2023</td>
+      <td>32:23.0</td>
+      <td>302995.460</td>
+      <td>248590.161</td>
+      <td>1514963</td>
+      <td>1486998</td>
+      <td>1</td>
+      <td>0.016</td>
+      <td>0.028</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>8/09/2023</td>
+      <td>59:34.0</td>
+      <td>302445.401</td>
+      <td>247995.626</td>
+      <td>1346507</td>
+      <td>1318573</td>
+      <td>3</td>
+      <td>0.12</td>
+      <td>0.072</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>8/09/2023</td>
+      <td>32:47.0</td>
+      <td>302540.380</td>
+      <td>247938.191</td>
+      <td>1342117</td>
+      <td>1314170</td>
+      <td>5</td>
+      <td>0.559</td>
+      <td>0.402</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>8/09/2023</td>
+      <td>50:24.0</td>
+      <td>302928.080</td>
+      <td>248596.004</td>
+      <td>1508566</td>
+      <td>1480608</td>
+      <td>3</td>
+      <td>0.18</td>
+      <td>0.112</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>8/09/2023</td>
+      <td>01:48.0</td>
+      <td>302956.219</td>
+      <td>248607.942</td>
+      <td>1512854</td>
+      <td>1484894</td>
+      <td>4</td>
+      <td>0.367</td>
+      <td>0.129</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>8/09/2023</td>
+      <td>25:50.0</td>
+      <td>302984.155</td>
+      <td>248601.450</td>
+      <td>1513498</td>
+      <td>1485535</td>
+      <td>5</td>
+      <td>0.257</td>
+      <td>0.13</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>53:34.0</td>
+      <td>302155.060</td>
+      <td>247741.470</td>
+      <td>1338077</td>
+      <td>1310161</td>
+      <td>6</td>
+      <td>0.291</td>
+      <td>0.181</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>26:29.0</td>
+      <td>302045.545</td>
+      <td>247650.392</td>
+      <td>1328182</td>
+      <td>1300273</td>
+      <td>3</td>
+      <td>0.347</td>
+      <td>0.215</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>29:50.0</td>
+      <td>302207.493</td>
+      <td>247767.666</td>
+      <td>1341687</td>
+      <td>1313767</td>
+      <td>2</td>
+      <td>0.243</td>
+      <td>0.138</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>03:19.0</td>
+      <td>302229.752</td>
+      <td>247892.380</td>
+      <td>1344103</td>
+      <td>1316187</td>
+      <td>3</td>
+      <td>0.343</td>
+      <td>0.217</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>10:53.0</td>
+      <td>301981.062</td>
+      <td>248881.942</td>
+      <td>1547867</td>
+      <td>1520018</td>
+      <td>3</td>
+      <td>0.263</td>
+      <td>0.137</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>58:14.0</td>
+      <td>301798.636</td>
+      <td>248108.698</td>
+      <td>1446887</td>
+      <td>1419024</td>
+      <td>3</td>
+      <td>0.19</td>
+      <td>0.117</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>09:31.0</td>
+      <td>301847.911</td>
+      <td>248155.130</td>
+      <td>1446869</td>
+      <td>1419003</td>
+      <td>3</td>
+      <td>0.364</td>
+      <td>0.186</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>31:22.0</td>
+      <td>301868.008</td>
+      <td>248170.170</td>
+      <td>1446827</td>
+      <td>1418960</td>
+      <td>3</td>
+      <td>0.147</td>
+      <td>0.072</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>30:20.0</td>
+      <td>301875.048</td>
+      <td>248297.576</td>
+      <td>1452434</td>
+      <td>1424571</td>
+      <td>3</td>
+      <td>0.235</td>
+      <td>0.161</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>8/10/2023</td>
+      <td>00:47.0</td>
+      <td>301968.070</td>
+      <td>248386.332</td>
+      <td>1451916</td>
+      <td>1424048</td>
+      <td>4</td>
+      <td>0.235</td>
+      <td>0.09</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>8/11/2023</td>
+      <td>58:29.0</td>
+      <td>301263.276</td>
+      <td>246688.966</td>
+      <td>1308378</td>
+      <td>1280506</td>
+      <td>4</td>
+      <td>0.656</td>
+      <td>0.64</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>8/11/2023</td>
+      <td>40:23.0</td>
+      <td>301456.505</td>
+      <td>246350.882</td>
+      <td>1292738</td>
+      <td>1264830</td>
+      <td>2</td>
+      <td>0.054</td>
+      <td>0.055</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>8/11/2023</td>
+      <td>04:19.0</td>
+      <td>301430.773</td>
+      <td>246394.964</td>
+      <td>1296034</td>
+      <td>1268131</td>
+      <td>2</td>
+      <td>0.077</td>
+      <td>0.064</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>8/11/2023</td>
+      <td>30:58.0</td>
+      <td>301364.741</td>
+      <td>246498.245</td>
+      <td>1300102</td>
+      <td>1272211</td>
+      <td>4</td>
+      <td>0.364</td>
+      <td>0.259</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>8/11/2023</td>
+      <td>34:20.0</td>
+      <td>301586.893</td>
+      <td>247430.776</td>
+      <td>1319567</td>
+      <td>1291696</td>
+      <td>5</td>
+      <td>0.604</td>
+      <td>0.323</td>
+      <td>27</td>
+    </tr>
+  </tbody>
 </table>
-</div>
-</div>
-</section>
-<section id="chunk-alignment" class="level2">
-<h2 class="anchored" data-anchor-id="chunk-alignment">Chunk alignment</h2>
+
+<p><em>GNSS data corrected in GrafNav</em></p>
+
+<h3 id="chunk-alignment">Chunk Alignment</h3>
+
 <p>For a precise alignment of point clouds, the process begins with the correction of a designated reference point cloud; in this case, the cloud dated 01/14/2023 is used. The coordinates of the markers are revised using the data acquired from the recent field campaign. Following this update, camera parameters are re-optimized, and a new dense point cloud is generated. This newly referenced point cloud then serves as the reference for aligning subsequent point clouds through the point-based method, a technique available to align chunks within <em>Agisoft</em>.</p>
-<p>Despite this registration, some misalignment persist. To address this, some pre-filtering steps and global registration methos are appied to subsequently apply a meticulous registration is conducted using the Iterative Closest Point (ICP) method, elaborated in the following sections.</p>
-</section>
-<section id="pre-processing-and-global-registration" class="level2">
-<h2 class="anchored" data-anchor-id="pre-processing-and-global-registration">Pre-processing and Global registration</h2>
+
+<p>Despite this registration, some misalignment persist. To address this, some pre-filtering steps and global registration methods are applied to subsequently apply a meticulous registration is conducted using the Iterative Closest Point (ICP) method, elaborated in the following sections.</p>
+
+<h3 id="pre-processing-and-global-registration">Pre-processing and Global Registration</h3>
+
 <p>The registration process was exclusively conducted within the stable zones identified within the study area. By avoiding regions experiencing landslide activity, where the terrain undergoes constant changes, we ensure a precise correlation between zones exhibiting minimal alterations over time. The stable areas from both the reference and target point clouds were manually selected and extracted using <em>Cloud Compare</em>.</p>
+
 <p>Subsequently, pre-registration steps were performed on these stable area point clouds, including:</p>
-<ol type="1">
-<li><p><strong>Initial Filtering Step</strong>: This involved the removal of statistical outliers using an Open3D function. Points that deviate significantly from the average distance to their neighbors were identified as outliers and removed. This step was iterated until all points not forming a continuous surface were eliminated.</p></li>
-<li><p><strong>Nearest Neighbor Distance Calculation</strong>: Next, KDtree was employed to compute the nearest neighbor distances between both point clouds (<a href="#fig-initialdist">Figure&nbsp;15</a>). In some regions where there was a lack of overlapping between the point clouds, resulting distances exceeded 3 meters. To address this issue and ensure complete overlap, points farther than 3 meters from one point cloud to the other were filtered out.</p></li>
+
+<ol>
+  <li>
+    <p><strong>Initial Filtering Step</strong>: This involved the removal of statistical outliers using an Open3D function. Points that deviate significantly from the average distance to their neighbors were identified as outliers and removed. This step was iterated until all points not forming a continuous surface were eliminated.</p>
+  </li>
+  <li>
+    <p><strong>Nearest Neighbor Distance Calculation</strong>: Next, KDtree was employed to compute the nearest neighbor distances between both point clouds. In some regions where there was a lack of overlapping between the point clouds, resulting distances exceeded 3 meters. To address this issue and ensure complete overlap, points farther than 3 meters from one point cloud to the other were filtered out.</p>
+  </li>
 </ol>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-initialdist" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="initialdistance.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;15: Nearest neighbor distances between both point clouds.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/initialdistance.png" alt="Nearest neighbor distances between both point clouds." />
+<em>Nearest neighbor distances between both point clouds</em></p>
+
 <p>After the initial filtering step, the alignment process proceeds with an initial coarse alignment to bring the point clouds into close proximity. This alignment method incorporates feature identification to refine the search for corresponding points. This process generally involves two key steps:</p>
-<ol type="1">
-<li><p><strong>Utilizing Fast Point Feature Histograms (FPFH)</strong>: FPFH is a technique employed in 3D registration, which aims to align multiple 3D point clouds. FPFH analyzes each point in a 3D point cloud by examining its surrounding points. It computes a histogram describing the geometric features of each point based on its neighbors, encompassing attributes like angle and distance between neighboring points. FPFH facilitates the matching of points across different 3D scenes by leveraging the geometric properties of each point and its surroundings (<span class="citation" data-cites="rusu20113d">Rusu et al. (<a href="#ref-rusu20113d" role="doc-biblioref">2011</a>)</span>).</p></li>
-<li><p><strong>Application of <em>registration_ransac_based_on_feature_matching</em> Function</strong>: Open3D’s <code>registration_ransac_based_on_feature_matching</code> function implements the RANSAC (Random Sample Consensus) algorithm tailored for point cloud registration via feature matching. RANSAC randomly selects a minimal subset of points from both point clouds to estimate a transformation, such as rotation and translation, between them (<span class="citation" data-cites="fischler1981random">Fischler et al. (<a href="#ref-fischler1981random" role="doc-biblioref">1981</a>)</span>). Subsequently, the estimated transformation is evaluated by applying it to all feature correspondences obtained in the previous step, and the number of inliers—correspondences consistent with the estimated transformation—is tallied.</p></li>
+
+<ol>
+  <li>
+    <p><strong>Utilizing Fast Point Feature Histograms (FPFH)</strong>: FPFH is a technique employed in 3D registration, which aims to align multiple 3D point clouds. FPFH analyzes each point in a 3D point cloud by examining its surrounding points. It computes a histogram describing the geometric features of each point based on its neighbors, encompassing attributes like angle and distance between neighboring points. FPFH facilitates the matching of points across different 3D scenes by leveraging the geometric properties of each point and its surroundings.</p>
+  </li>
+  <li>
+    <p><strong>Application of registration_ransac_based_on_feature_matching Function</strong>: Open3D’s <code class="language-plaintext highlighter-rouge">registration_ransac_based_on_feature_matching</code> function implements the RANSAC (Random Sample Consensus) algorithm tailored for point cloud registration via feature matching. RANSAC randomly selects a minimal subset of points from both point clouds to estimate a transformation, such as rotation and translation, between them. Subsequently, the estimated transformation is evaluated by applying it to all feature correspondences obtained in the previous step, and the number of inliers—correspondences consistent with the estimated transformation—is tallied.</p>
+  </li>
 </ol>
-<p>In essence, these refined alignment techniques enable the accurate registration of point clouds by iteratively estimating transformations based on feature correspondences, thereby enhancing the robustness and accuracy of the alignment process. Although the global alignment has improved the distribution of distances, as depicted in <a href="#fig-global">Figure&nbsp;16</a>, with a mean value of less than 2 meters, the Global Registration Modified Hausdorff Distance has increased to 3.75 meters. This discrepancy underscores the necessity for a more precise registration process to minimize the offset between the two point clouds.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-global" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="globalregistration.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;16: Nearest neighbor distances between both point clouds before and after global registration.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="icp-registration" class="level2">
-<h2 class="anchored" data-anchor-id="icp-registration">ICP registration</h2>
+
+<p>In essence, these refined alignment techniques enable the accurate registration of point clouds by iteratively estimating transformations based on feature correspondences, thereby enhancing the robustness and accuracy of the alignment process. Although the global alignment has improved the distribution of distances, with a mean value of less than 2 meters, the Global Registration Modified Hausdorff Distance has increased to 3.75 meters. This discrepancy underscores the necessity for a more precise registration process to minimize the offset between the two point clouds.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/globalregistration.png" alt="Nearest neighbor distances between both point clouds before and after global registration." />
+<em>Nearest neighbor distances before and after global registration</em></p>
+
+<h3 id="icp-registration">ICP Registration</h3>
+
 <p>Unlike global alignment, fine registration methods require two point clouds that already have a rough correspondence. The Iterative Closest Point (ICP) algorithm is commonly used for local refinement and has two main variants:</p>
-<p><strong>Point-to-point ICP</strong></p>
-<p>The Iterative Closest Point (ICP) algorithm, introduced in the early 1990s by various authors (<span class="citation" data-cites="besl1992method">Besl et al. (<a href="#ref-besl1992method" role="doc-biblioref">1992</a>)</span>, <span class="citation" data-cites="chen1992object">Chen et al. (<a href="#ref-chen1992object" role="doc-biblioref">1992</a>)</span>, <span class="citation" data-cites="zhang1994iterative">Zhang (<a href="#ref-zhang1994iterative" role="doc-biblioref">1994</a>)</span>), stands out among the myriad registration methods proposed in the literature. It has become one of the most well-known for efficiently registering two 2D or 3D point sets under Euclidean (rigid) transformation.</p>
-<p>The process follows a simple concept (<span class="citation" data-cites="yang2015go">Yang et al. (<a href="#ref-yang2015go" role="doc-biblioref">2015</a>)</span>):</p>
-<ol type="1">
-<li><p>Begin with an initial transformation involving rotation and translation.</p></li>
-<li><p>Alternate between two steps:</p>
-<ol type="a">
-<li><p>Establish closest-point correspondences under the current transformation.</p></li>
-<li><p>Estimate a new transformation using these correspondences.</p></li>
-</ol></li>
-<li><p>Repeat steps 2a and 2b until convergence is achieved.</p></li>
+
+<h4 id="point-to-point-icp">Point-to-Point ICP</h4>
+
+<p>The Iterative Closest Point (ICP) algorithm, introduced in the early 1990s by various authors, stands out among the myriad registration methods proposed in the literature. It has become one of the most well-known for efficiently registering two 2D or 3D point sets under Euclidean (rigid) transformation.</p>
+
+<p>The process follows a simple concept:</p>
+
+<ol>
+  <li>
+    <p>Begin with an initial transformation involving rotation and translation.</p>
+  </li>
+  <li>Alternate between two steps:
+    <ul>
+      <li>Establish closest-point correspondences under the current transformation.</li>
+      <li>Estimate a new transformation using these correspondences.</li>
+    </ul>
+  </li>
+  <li>Repeat steps 2a and 2b until convergence is achieved.</li>
 </ol>
+
 <p>Notably, the point-to-point ICP method is capable of directly processing the raw point sets without regard to their inherent characteristics, such as distribution, density, and noise level.</p>
-<p>The <code>registration_icp</code> function of <em>Open3D</em> aligns both stable-area point clouds using the global transformation matrix from the previous step via ICP registration. subsequently, we use the <code>evaluate_registration</code> function that calculates two key metrics: <strong>Fitness</strong>, that measures overlapping area (# of inlier correspondences / # of points in target), higher values indicate better alignment. And <strong>Inlier RMSE</strong>, that measures RMSE of all inlier correspondences with lower values indicating better alignment.</p>
-<p>As depicted in <a href="#fig-finalreg">Figure&nbsp;17</a>, the final registration demonstrates excellent performance, with mean distances smaller than 50 centimeters. Subsequently, the final transformation matrix derived from this registration is applied to the full dataset, encompassing both stable and landslide areas.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-finalreg" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="finalregistration.png" class="img-fluid figure-img" alt="Rosas, Cauca - Colombia"></p>
-<figcaption class="figure-caption">Figure&nbsp;17: Nearest neighbor distances between both point clouds before and after global registration and ICP registration.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<p>In <a href="#tbl-distance">Table&nbsp;3</a>, a comprehensive overview of the effectiveness of various registration methods in enhancing the alignment of point clouds is provided. By meticulously examining the metrics presented in the table, including distances between corresponding points before and after registration, the impact of each method on the alignment quality becomes evident.</p>
-<div class="table">
-<div id="tbl-distance" class="anchored">
-<table class="table">
-<caption>Table&nbsp;3: Hausdorff and Modified Hausdorff distance calculated throughout the registration process</caption>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 27%">
-<col style="width: 39%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Hausdorff Distance</th>
-<th style="text-align: center;">Modified Hausdorff Distance</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Before globar alignment</td>
-<td style="text-align: center;">154.51</td>
-<td style="text-align: center;">3.312067224</td>
-</tr>
-<tr class="even">
-<td>After global alaignment</td>
-<td style="text-align: center;">145.26</td>
-<td style="text-align: center;">3.75</td>
-</tr>
-<tr class="odd">
-<td>After ICP</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">2.41</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</section>
-<section id="key-project-insights" class="level1">
-<h1>Key project insights</h1>
+
+<p>The <code class="language-plaintext highlighter-rouge">registration_icp</code> function of <em>Open3D</em> aligns both stable-area point clouds using the global transformation matrix from the previous step via ICP registration. Subsequently, we use the <code class="language-plaintext highlighter-rouge">evaluate_registration</code> function that calculates two key metrics:</p>
+
 <ul>
-<li><p>Regarding the GNSS survey, various points for improvement were identified. Allocating more time to conduct the survey offers the opportunity to collect data under optimal conditions, ensuring minimal cloud cover for improved satellite connectivity. It’s highly recommended to avoid locations with high environmental noise, although in densely populated areas like the study site, finding such sites proved challenging. Natural landmarks, initially identified using high-resolution orthophotos, were utilized; however, a more efficient method for accurately georeferencing UAV-generated models involves setting markers during flight execution. Some markers selected during pre-field preparations had disappeared or changed by the time of the GNSS survey, posing a limitation to the method.</p></li>
-<li><p>The heterogeneity in data acquisition, spanning different UAV devices, flight heights, number of photos captured, varying point density within and between point clouds, and distinct spatial extents, poses challenges during post-processing and alignment.</p></li>
+  <li><strong>Fitness</strong>: measures overlapping area (# of inlier correspondences / # of points in target), higher values indicate better alignment.</li>
+  <li><strong>Inlier RMSE</strong>: measures RMSE of all inlier correspondences with lower values indicating better alignment.</li>
 </ul>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
-<div id="ref-MetashapeManual2023" class="csl-entry" role="listitem">
-Agisoft. (2023). <em>Metashape professional 2.0 user manual</em>. Retrieved from <a href="https://www.agisoft.com/pdf/metashape-pro\_2\_0\_en.pdf">https://www.agisoft.com/pdf/metashape-pro\_2\_0\_en.pdf</a>
-</div>
-<div id="ref-besl1992method" class="csl-entry" role="listitem">
-Besl, P. J., &amp; McKay, N. D. (1992). Method for registration of 3-d shapes. <em>Sensor Fusion IV: Control Paradigms and Data Structures</em>, <em>1611</em>, 586–606.
-</div>
-<div id="ref-brook2019monitoring" class="csl-entry" role="listitem">
-Brook, M. S., &amp; Merkle, J. (2019). Monitoring active landslides in the auckland region utilising UAV/structure-from-motion photogrammetry. <em>Japanese Geotechnical Society Special Publication</em>, <em>6</em>(2), 1–6.
-</div>
-<div id="ref-chen1992object" class="csl-entry" role="listitem">
-Chen, Y., &amp; Medioni, G. (1992). Object modelling by registration of multiple range images. <em>Image and Vision Computing</em>, <em>10</em>(3), 145–155.
-</div>
-<div id="ref-fischler1981random" class="csl-entry" role="listitem">
-Fischler, M. A., &amp; Bolles, R. C. (1981). Random sample consensus: A paradigm for model fitting with applications to image analysis and automated cartography. <em>Communications of the ACM</em>, <em>24</em>(6), 381–395.
-</div>
-<div id="ref-igacatlas" class="csl-entry" role="listitem">
-IGAC. (2012). Atlas geogr<span>á</span>fico. In Obtenido de http://atlasgeografico. net/departamento-del-meta. html.
-</div>
-<div id="ref-lucieer2014mapping" class="csl-entry" role="listitem">
-Lucieer, A., Jong, S. M. de, &amp; Turner, D. (2014). Mapping landslide displacements using structure from motion (SfM) and image correlation of multi-temporal UAV photography. <em>Progress in Physical Geography</em>, <em>38</em>(1), 97–116.
-</div>
-<div id="ref-niethammer2012uav" class="csl-entry" role="listitem">
-Niethammer, U., James, M., Rothmund, S., Travelletti, J., &amp; Joswig, M. (2012). UAV-based remote sensing of the super-sauze landslide: Evaluation and results. <em>Engineering Geology</em>, <em>128</em>, 2–11.
-</div>
-<div id="ref-pulido2003seismotectonics" class="csl-entry" role="listitem">
-Pulido, N. (2003). Seismotectonics of the northern andes (colombia) and the development of seismic networks. <em>Bulletin of the International Institute of Seismology and Earthquake Engineering, Special Edition</em>, 69–76.
-</div>
-<div id="ref-rusu20113d" class="csl-entry" role="listitem">
-Rusu, R. B., &amp; Cousins, S. (2011). 3d is here: Point cloud library (pcl). <em>2011 IEEE International Conference on Robotics and Automation</em>, 1–4.
-</div>
-<div id="ref-sgc2020" class="csl-entry" role="listitem">
-SGC. (2020). <em>ZONIFICACIÓN DE AMENAZA POR MOVIMIENTOS EN MASA EN EL MUNICIPIO DE ROSAS – CAUCA ESCALA 1:25.000</em>.
-</div>
-<div id="ref-InformeVisitaEmergencia" class="csl-entry" role="listitem">
-SGC. (2023). <em>Informe visita de emergencia a la microcuenca de la quebrada chontaduro y concepto técnico sobre el trazado alterno de la vía panamericana – municipio de rosas, departamento del cauca</em>. Bogotá, enero de 2023.
-</div>
-<div id="ref-taboada2000geodynamics" class="csl-entry" role="listitem">
-Taboada, A., Rivera, L. A., Fuenzalida, A., Cisternas, A., Philip, H., Bijwaard, H., Olaya, J., &amp; Rivera, C. (2000). Geodynamics of the northern andes: Subductions and intracontinental deformation (colombia). <em>Tectonics</em>, <em>19</em>(5), 787–813.
-</div>
-<div id="ref-yang2015go" class="csl-entry" role="listitem">
-Yang, J., Li, H., Campbell, D., &amp; Jia, Y. (2015). Go-ICP: A globally optimal solution to 3D ICP point-set registration. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>, <em>38</em>(11), 2241–2254.
-</div>
-<div id="ref-zhang1994iterative" class="csl-entry" role="listitem">
-Zhang, Z. (1994). Iterative point matching for registration of free-form curves and surfaces. <em>International Journal of Computer Vision</em>, <em>13</em>(2), 119–152.
-</div>
-</div>
+
+<p>As depicted below, the final registration demonstrates excellent performance, with mean distances smaller than 50 centimeters. Subsequently, the final transformation matrix derived from this registration is applied to the full dataset, encompassing both stable and landslide areas.</p>
+
+<p><img src="/LinaAtTheMoment/assets/images/project1/finalregistration.png" alt="Nearest neighbor distances between both point clouds before and after global registration and ICP registration." />
+<em>Distances before and after global registration and ICP registration</em></p>
+
+<p>In the table below, a comprehensive overview of the effectiveness of various registration methods in enhancing the alignment of point clouds is provided. By meticulously examining the metrics presented in the table, including distances between corresponding points before and after registration, the impact of each method on the alignment quality becomes evident.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Hausdorff Distance</th>
+      <th>Modified Hausdorff Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Before global alignment</td>
+      <td>154.51</td>
+      <td>3.312067224</td>
+    </tr>
+    <tr>
+      <td>After global alignment</td>
+      <td>145.26</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>After ICP</td>
+      <td>—</td>
+      <td>2.41</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Hausdorff and Modified Hausdorff distance calculated throughout the registration process</em></p>
+
+<h2 id="key-project-insights">Key Project Insights</h2>
+
+<ul>
+  <li>
+    <p>Regarding the GNSS survey, various points for improvement were identified. Allocating more time to conduct the survey offers the opportunity to collect data under optimal conditions, ensuring minimal cloud cover for improved satellite connectivity. It’s highly recommended to avoid locations with high environmental noise, although in densely populated areas like the study site, finding such sites proved challenging. Natural landmarks, initially identified using high-resolution orthophotos, were utilized; however, a more efficient method for accurately georeferencing UAV-generated models involves setting markers during flight execution. Some markers selected during pre-field preparations had disappeared or changed by the time of the GNSS survey, posing a limitation to the method.</p>
+  </li>
+  <li>
+    <p>The heterogeneity in data acquisition, spanning different UAV devices, flight heights, number of photos captured, varying point density within and between point clouds, and distinct spatial extents, poses challenges during post-processing and alignment.</p>
+  </li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<p>Besl, P. J., &amp; McKay, N. D. (1992). Method for registration of 3-D shapes. In <em>Sensor fusion IV: control paradigms and data structures</em> (Vol. 1611, pp. 586–606). SPIE.</p>
+
+<p>Brook, M. S., &amp; Merkle, J. (2019). Monitoring active landslides in the Auckland region utilising UAV/structure-from-motion photogrammetry. <em>Japanese Geotechnical Society Special Publication, 6</em>(2), 1–6.</p>
+
+<p>Chen, Y., &amp; Medioni, G. (1992). Object modelling by registration of multiple range images. <em>Image and Vision Computing, 10</em>(3), 145–155.</p>
+
+<p>Fischler, M. A., &amp; Bolles, R. C. (1981). Random sample consensus: a paradigm for model fitting with applications to image analysis and automated cartography. <em>Communications of the ACM, 24</em>(6), 381–395.</p>
+
+<p>IGAC. (2012). Atlas Geográfico. Retrieved from http://atlasgeografico.net/departamento-del-meta.html</p>
+
+<p>Lucieer, A., de Jong, S. M., &amp; Turner, D. (2014). Mapping landslide displacements using Structure from Motion (SfM) and image correlation of multi-temporal UAV photography. <em>Progress in Physical Geography, 38</em>(1), 97–116.</p>
+
+<p>Niethammer, U., James, M. R., Rothmund, S., Travelletti, J., &amp; Joswig, M. (2012). UAV-based remote sensing of the Super-Sauze landslide: Evaluation and results. <em>Engineering Geology, 128</em>, 2–11.</p>
+
+<p>Pulgarin, B., Navarro, S., Monsalve, M. L., Murcia, H., Téllez, L., Correa, A. M., &amp; Martínez, L. (2010). Geología e historia eruptiva del Complejo Volcánico Sotará. <em>Colombia, Instituto Colombiano de Geología y Minería, Ingeominas, Anexo, 1</em>.</p>
+
+<p>Pulido, N. (2003). Seismotectonics of the northern Andes (Colombia) and the development of seismic networks. <em>Bulletin of the International Institute of Seismology and Earthquake Engineering, Special Edition</em>, 69–76.</p>
+
+<p>Rusu, R. B., &amp; Cousins, S. (2011). 3D is here: Point cloud library (PCL). In <em>2011 IEEE International Conference on Robotics and Automation</em> (pp. 1–4). IEEE.</p>
+
+<p>SGC. (2020). <em>Zonificación de amenaza por movimientos en masa en el municipio de Rosas – Cauca escala 1:25.000</em>. Servicio Geológico Colombiano.</p>
+
+<p>SGC. (2023). <em>Informe visita de emergencia a la microcuenca de la quebrada Chontaduro y concepto técnico sobre el trazado alterno de la vía Panamericana – Municipio de Rosas, departamento del Cauca</em>. Bogotá.</p>
+
+<p>Taboada, A., Rivera, L. A., Fuenzalida, A., Cisternas, A., Philip, H., Bijwaard, H., Olaya, J., &amp; Rivera, C. (2000). Geodynamics of the northern Andes: Subductions and intracontinental deformation (Colombia). <em>Tectonics, 19</em>(5), 787–813.</p>
+
+<p>Yang, J., Li, H., Campbell, D., &amp; Jia, Y. (2015). Go-ICP: A globally optimal solution to 3D ICP point-set registration. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence, 38</em>(11), 2241–2254.</p>
+
+<p>Zhang, Z. (1994). Iterative point matching for registration of free-form curves and surfaces. <em>International Journal of Computer Vision, 13</em>(2), 119–152.</p>
+
+<hr />
+
+<p><strong>Supervisor</strong>: Prof. Dr. Bodo Bookhagen</p>
+
+<p><em>Agisoft. (2023). Metashape Professional 2.0 User Manual. Retrieved from https://www.agisoft.com/pdf/metashape-pro_2_0_en.pdf</em></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
-</section>
+        
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
-      });
-    }
-  }
-});
-</script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left"><span class="faux-block">© 2024 Lina Pérez</span></div>   
-    <div class="nav-footer-center">
-      &nbsp;
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-03-01T00:00:00+01:00">March 1, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/LinaAtTheMoment/project2/" class="pagination--pager" title="Project Title">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
     </div>
-    <div class="nav-footer-right"><span class="faux-block"><a href="https://github.com/LinMaria/LinaAtTheMoment">View source on GitHub</a></span></div>
-  </div>
-</footer>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://substack.com/@linama1" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-substack" aria-hidden="true"></i> Substack</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/linmapeerzg621/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/LinMaria" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/LinaAtTheMoment/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="http://localhost:4000">Lina María Pérez</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/LinaAtTheMoment/assets/js/main.min.js"></script>
 
 
 
-</body></html>
+
+<script src="/LinaAtTheMoment/assets/js/lunr/lunr.min.js"></script>
+<script src="/LinaAtTheMoment/assets/js/lunr/lunr-store.js"></script>
+<script src="/LinaAtTheMoment/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

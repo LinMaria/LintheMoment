@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {%- if page.image -%}
+        <div style="text-align: center; margin-bottom: 40px;">
+          <img src="{{ page.image | relative_url }}" alt="Profile" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover;">
+        </div>
+        {%- endif -%}
+
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>

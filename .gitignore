@@ -1,6 +1,4 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-
-/.quarto/
+.jekyll-cache/
+_site/
+.sass-cache/
+.DS_Store

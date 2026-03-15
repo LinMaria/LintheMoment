@@ -1,0 +1,104 @@
+# Site
+title: "Lina María Pérez"
+description: "Healing the soul through the experience and love of the natural world"
+email: "linamapg@gmail.com"
+locale: en-US
+
+# Author
+author:
+  name: "Lina María Pérez"
+  avatar: "/assets/images/P1010568.JPG"
+  bio: "Geologist | Remote Sensing | Hazard & Risk Assessment"
+  links:
+    - label: "Substack"
+      icon: "fab fa-fw fa-substack"
+      url: "https://substack.com/@linama1"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/linmapeerzg621/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/LinMaria"
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:linamapg@gmail.com"
+
+# Theme
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default"
+
+sass:
+  quiet_deps: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-include-cache
+
+# URL
+url: "https://linmaria.github.io"
+baseurl: "/LinaAtTheMoment"
+
+# Footer
+footer:
+  links:
+    - label: "Substack"
+      icon: "fab fa-fw fa-substack"
+      url: "https://substack.com/@linama1"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/linmapeerzg621/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/LinMaria"
+
+# Make sure Jekyll processes _pages
+include:
+  - _pages
+
+# Search
+search: true
+search_full_content: true
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: "\n\n"
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 1..6
+
+# Build output for GitHub Pages (/docs)
+destination: docs
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Excludes (build junk + leftovers)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - .git
+  - .gitignore
+  - README.md
+  - .DS_Store
+  - .jekyll-cache/
+  - "**/*.qmd"
+  - html
+
+# Comments & Analytics
+comments:
+  provider: false
+
+analytics:
+  provider: false
