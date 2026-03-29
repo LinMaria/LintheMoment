@@ -4,6 +4,7 @@ title: "Multi-Temporal UAV Change Detection and Dense Displacement Mapping for M
 permalink: /project2/
 author_profile: false
 toc: true
+mathjax: true
 classes: wide
 header:
   overlay_color: "#000"
@@ -13,7 +14,7 @@ header:
 ---
 .
 
-## Introduction
+## 1. Introduction
 
 Landslides are among the most destructive geomorphic hazards in mountainous regions, where steep slopes, intense rainfall, and weak or highly weathered materials interact to produce rapid landscape change. In this context, unmanned aerial vehicle (UAV) photogrammetry has become a valuable tool for landslide monitoring because it allows the generation of high-resolution multi-temporal orthophotos and surface models at short time intervals. 
 The Rosas landslide in Cauca, Colombia, provides a particularly relevant case study: the main failure occurred on 9 January 2023 in the upper basin of Chontaduro Creek, affected several local communities, and damaged a section of the Pan-American Highway. Subsequent surveys recorded a rapid expansion of the affected area during the days following the event.
@@ -24,20 +25,20 @@ This study uses 12 orthophotos derived from aligned drone point clouds to evalua
 
 *This internship was supervised by Prof. Dr. Bodo Bookhagen.*
 
-## Objectives
+## 2. Objectives
 
-### General objective
+### 2.1. General objective
 
 To evaluate the performance of OpenCV-based change detection and dense displacement estimation on multitemporal UAV orthophotos of the Rosas landslide, comparing their behavior in two contiguous sectors with contrasting deformation styles.
 
-### Specific objectives
+### 2.2. Specific objectives
 
 - Define two representative analysis areas with different kinematic characteristics: a rapidly changing debris-flow-like sector and a slower eastern-flank sector with predominantly translational behavior.
 - Generate, for each consecutive orthophoto pair, a binary change mask and a dense displacement field using OpenCV-based methods.
 - Estimate empirical uncertainty from stable terrain in order to quantify false detections and residual motion.
 - Compare the temporal and spatial behavior of both products in the two analysis areas and determine how deformation style influences their performance.
 
-### Study Area
+### 3. Study Area
 
 The study area is located in the rural district of La Soledad, municipality of Rosas, Cauca, in southwestern Colombia ([Figure 1](#fig-study-area)). It lies within the upper basin of Chontaduro Creek, in the Patía Valley intermontane depression between the Western and Central Cordilleras of the Colombian Andes. The region is highly susceptible to landslides due to the combination of steep topography, intense rainfall, and soils and deposits derived from volcanic and volcaniclastic materials associated with the Sotará volcanic complex. Previous regional work by the Servicio Geológico Colombiano identified a long history of mass-movement activity in the municipality, highlighting the geomorphic instability of the area.
 
@@ -57,26 +58,29 @@ For the purposes of this research, two contiguous sub-areas were selected from t
 {: #study-areas }
 *Figure 3. Sub-areas of study. The flow area (blue shadowed) and the flank of the landslide (purpule shadowed). The stable terrain used to fine-aligned the orthophotos is shown in stripped diagonal lines.*
 
-## Data
+## 4. Data
 
-Describe:
+The dataset used in this study consists of the 12 orthophotos selected, derived from UAV point clouds acquired after the Rosas, Cauca landslide. These data span from 17 January 2023 to 18 May 2023 and include, for each survey date, the number of cameras, the size of the reconstructed point cloud, and the orthophoto resolution. This subset was chosen assuring all orthophotos cover the area selected for this study.
 
-- image source
-- spatial resolution
-- dates used
-- coordinate system
-- stable area shapefile
-- flank and flux analysis polygons
-- precipitation dataset and station information
+| Date       | Cameras | Points  | Orthophoto resolution (m) |
+|------------|---------|---------|----------------------------|
+| 1/17/2023  | 567     | 436,618 | 0.1                        |
+| 1/20/2023  | 196     | 194,101 | 0.1                        |
+| 1/26/2023  | 332     | 352,573 | 0.1                        |
+| 1/30/2023  | 321     | 351,487 | 0.1                        |
+| 2/3/2023   | 418     | 403.19  | 0.1                        |
+| 2/6/2023   | 331     | 336,810 | 0.0643                     |
+| 2/11/2023  | 576     | 627,729 | 0.1                        |
+| 2/16/2023  | 329     | 346,862 | 0.0631                     |
+| 3/6/2023   | 330     | 324,661 | 0.1                        |
+| 3/21/2023  | 331     | 352.909 | 0.1                        |
+| 3/30/2023  | 328     | 327,605 | 0.1                        |
+| 5/18/2023  | 333     | 243,261 | 0.1                        |
+{: #table1 }
+*Table 1. UAV-derived orthophoto dataset used in this study for the study area, including acquisition date, number of cameras, point-cloud size, and orthophoto resolution for the surveys selected for the multitemporal analysis..*
 
-Possible table:
 
-- date
-- image file name
-- temporal interval from previous image
-- remarks
-
-## Methodology
+## 5. Methodology
 
 The orthophotos analyzed in this study were generated from UAV point clouds that had been previously processed and aligned through a Structure-from-Motion workflow (see the previous study [here](https://up-rs-esp.github.io/LinaMariaPerez_UAV_landslide/)). This earlier stage included image alignment in Agisoft Metashape, dense point cloud generation, selection of natural control points, GNSS surveying, chunk alignment, and additional refinement through stable-area registration and Iterative Closest Point (ICP) optimization. This previous co-registration stage provided the geometric basis for the orthophoto-based change analysis carried out here.
 
@@ -84,7 +88,7 @@ The methodological workflow developed in this study was designed to compare two 
 
 <span style="color: red;">Figure 4</span>
 
-### Fine Alignment of Images
+### 5.1. Fine Alignment of Images
 
 Fine image alignment was necessary because even when orthophotos are derived from previously aligned point clouds, small residual offsets between dates may remain. In a landslide study, these residual misalignments can produce false change patterns that are unrelated to true terrain deformation. For this reason, an additional image-based alignment step was applied before any change analysis.
 
@@ -103,7 +107,7 @@ Alignment quality was evaluated by comparing the absolute grayscale residuals ov
 {: #residuals }
 *Figure 6. Absolute grayscale difference before and after alignment for a single pair of images.*
 
-### Pre-Processing
+### 5.2. Pre-Processing
 
 Once the images were finely aligned, a preprocessing stage was applied to ensure that only comparable pixels were analyzed. First, the valid overlap between the reference and aligned target image was identified, and the analysis was restricted to the common image extent. This step is necessary because small differences in coverage and warping can leave margins where one image contains data and the other does not. The stable mask was also resized when necessary to match the raster dimensions of the images used in each pair. In OpenCV, image resizing can be performed with different interpolation schemes; nearest-neighbor interpolation is appropriate for masks because it preserves discrete classes without introducing mixed values.
 
@@ -113,7 +117,7 @@ After defining the common extent, the target image was radiometrically harmonize
 {: #histograms }
 *Figure 7. Pre and post histogram matching of a single image.*
 
-### Change Detection
+### 5.3. Change Detection
 
 The first analysis product was a *binary change mask* representing areas where the image content changed substantially between two consecutive dates. The procedure began by converting the orthophotos to grayscale using `cv2.cvtColor`(See function [here](https://docs.opencv.org/3.4/de/d25/imgproc_color_conversions.html?)), so that the comparison was performed on a single intensity field instead of three color channels. This simplifies the analysis and reduces sensitivity to inter-date chromatic variability, while preserving the luminance structure needed for pixel-wise comparison.
 
@@ -131,7 +135,7 @@ Finnaly, the binary mask was further refined by area filtering, so that very sma
 {: #changemask }
 *Figure 8. Example of the binary change-detection workflow for one image pair: (left) reference orthophoto, (middle) absolute grayscale difference after alignment and radiometric harmonization, and (right) final binary change mask overlaid on the reference image after thresholding and morphological filtering.*
 
-### Dense Displacement Field
+### 5.4. Dense Displacement Field
 
 The second analysis product was a **dense displacement field** estimated by optical flow (see [OpenCV documentation](https://docs.opencv.org/4.x/d4/dee/tutorial_optical_flow.html)). Optical flow aims to recover the apparent motion of image brightness patterns between two dates, so that each pixel is assigned a two-dimensional displacement vector. In contrast to binary change detection, which only identifies whether a location changed or not, dense optical flow provides continuous kinematic information, allowing the estimation of both the magnitude and direction of apparent surface movement. In the classical optical-flow formulation, motion estimation is based on the **brightness constancy assumption**, which states that the intensity of a moving image pattern remains approximately constant between two observations, and on an additional spatial regularity assumption, since the motion cannot be solved uniquely from a single pixel alone ([Horn, B. K. P., & Schunck, B. G. (1981)](https://www.sciencedirect.com/science/article/pii/0004370281900242?)).
 
@@ -141,41 +145,56 @@ The function was applied to the consecutive aligned corrected grayscale orthopho
 
 ![opticalflow]({{ '/assets/images/project2/dense_optical_flow.jpg' | relative_url }})
 {: #opticalflow }
-*Figure 9. Low-uncertainty dense-displacement products for a representative orthophoto pair. (upper left) Displacement magnitude after uncertainty filtering. (upper right) Displacement direction derived from the horizontal and vertical flow components. (lower left) Coarse quiver vectors summarizing the reliable motion field. (lower right) Direction map overlaid on the grayscale orthophoto for spatial interpretation of the estimated movement patterns.
+*Figure 9. Low-uncertainty dense-displacement products for a representative orthophoto pair. (upper left) Displacement magnitude after uncertainty filtering. (upper right) Displacement direction derived from the horizontal and vertical flow components. (lower left) Coarse quiver vectors summarizing the reliable motion field. (lower right) Direction map overlaid on the grayscale orthophoto for spatial interpretation of the estimated movement patterns.*
 
 In this study displacement magnitude was derived as the Euclidean norm of the two flow components, whereas direction was derived from the arctangent of the vertical and horizontal components and then expressed in degrees. The pixel-based displacement estimates were additionally converted to metric units using the orthophoto ground sampling distance (see [Table 1](#table1)), making it possible to interpret the motion field in terms of approximate ground displacement.
 
 A useful distinction to state explicitly is that the two products address different aspects of landslide dynamics. The **change mask** is binary and extent-oriented: it indicates where significant change likely occurred. The **dense displacement field** is continuous and kinematics-oriented: it indicates how the surface texture appears to move within those changing zones. Used together, both products provide complementary information on landslide activity, since one describes the spatial footprint of change and the other describes its apparent motion pattern. 
 
-### Uncertainty Estimation
+### 5.5. Uncertainty Estimation
 
-Uncertainty estimation is a key component of this methodology because it allows the products to be evaluated critically rather than only described visually. In this study, uncertainty was estimated empirically from stable terrain, where true ground motion is assumed to be negligible over the time span between consecutive image dates. Under that assumption, any detected change or apparent motion in the stable mask can be interpreted as residual error caused by geometric mismatch, radiometric inconsistency, algorithmic sensitivity, or interpolation effects.
+Uncertainty estimation was included to distinguish plausible landslide-related signals from artifacts introduced by residual misregistration, radiometric differences, interpolation effects, and optical-flow instability. In image-based displacement analysis, this step is especially important because the estimated motion field is affected not only by real terrain displacement, but also by the assumptions of optical flow itself, including brightness constancy and spatial smoothness. Classical optical-flow theory shows that motion cannot be recovered independently at each pixel without additional assumptions, and modern reviews continue to treat uncertainty and consistency checks as essential parts of flow interpretation ([Horn, B. K. P., & Schunck, B. G. (1981)](https://www.sciencedirect.com/science/article/pii/0004370281900242?)).
 
-For the binary change mask, uncertainty was quantified as the area falsely classified as change inside the stable terrain. This false-detection area provides a practical reference for judging whether the mapped change in the landslide sectors is clearly above the background level of processing noise. If the change area in an unstable sector is comparable to the false positive area observed over stable ground, that result should be interpreted cautiously.
+Because no external ground-truth displacement field was available for each image pair, uncertainty was estimated empirically from the defined **stable terrain**, where true motion is assumed to be negligible over the interval between orthophotos. This logic is widely used in geospatial change analysis: stable surrounding terrain provides a practical estimate of the background error level against which motion inside the active area can be compared. In recent landslide and topographic monitoring studies, displacement or elevation residuals measured over stable terrain are explicitly used as indicators of uncertainty and precision ([Mueting, A., et al. (2024)](https://esurf.copernicus.org/articles/12/1121/2024/esurf-12-1121-2024.pdf?))
 
-For the dense displacement field, uncertainty was estimated from the residual motion measured over stable terrain. These residual vectors were summarized using descriptive statistics such as RMSE and the 95th percentile, which provide reference levels for the magnitude of apparent motion that can arise even where no real displacement is expected. In addition, a pointwise uncertainty indicator was computed using forward-backward consistency. In this approach, flow is first estimated from image A to image B and then from image B back to image A. The backward field is remapped to the forward positions, and disagreement between both estimates is interpreted as local unreliability. OpenCV’s remap function is specifically designed to relocate image or array values according to a coordinate mapping, which makes it suitable for this consistency check.
+For the **binary change mask**, uncertainty was quantified as the area falsely classified as change inside the stable mask. This is computed as the number of stable pixels with non-zero change multiplied by pixel area, together with the corresponding false-positive rate relative to the stable valid area. Then, if the detected change within the unstable area is of the same order as the false change observed over stable ground, that result should be interpreted cautiously. These indicators are computed pairwise.
 
-Pixels with uncertainty above a threshold derived from stable terrain were filtered out, and only low-uncertainty motion estimates were retained for visualization and interpretation. To improve readability, the reliable dense vectors were further aggregated onto a coarser grid before plotting magnitude and direction. This step does not alter the original dense computation, but it makes the spatial structure of the motion field easier to interpret.
-This subsection is one of the strongest parts of the methodology because it demonstrates that the workflow does not simply generate maps, but also evaluates the confidence that can be placed in them.
+For the **dense displacement field**, uncertainty was evaluated from residual motion over stable terrain and from a pointwise **forward–backward consistency** check. The dense flow itself was computed in both temporal directions using Farnebäck optical flow, via `cv2.calcOpticalFlowFarneback`, which in OpenCV returns a dense vector field where each pixel in the first image is assigned a displacement vector toward its corresponding position in the second image. This estimation comes from Farnebäck’s polynomial-expansion approach, in which local image neighborhoods are approximated by quadratic polynomials and the displacement is inferred from how those polynomial coefficients change under translation ([Farnebäck, G. (2003)](https://www.diva-portal.org/smash/get/diva2%3A273847/FULLTEXT01.pdf)).
 
-A good closing sentence for this subsection is:
-The uncertainty analysis provides an empirical benchmark for separating plausible landslide-related signals from residual artifacts introduced by image registration, radiometric variability, and dense-flow estimation.
+The forward–backward consistency principle was then used to assess local reliability. The idea is simple: if the forward flow from image (A) to image (B) is correct, then the backward flow from (B) to (A), evaluated at the forward-mapped position, should approximately reverse it. Thus, a reliable pixel should satisfy:
 
-### Temporal and Spatial Analysis
+$$
+\mathbf{f}(x) + \mathbf{b}(x + \mathbf{f}(x)) \approx 0
+$$
+
+
+where $\mathbf{f}$ is the forward flow and $\mathbf{b}$ is the backward flow. Large disagreement indicates unstable matching. The backward flow is sampled at the forward-displaced coordinates using `cv2.remap`, which applies a geometric mapping with interpolation for non-integer locations. Bidirectional consistency is widely recognized in the optical-flow literature as a practical way to test flow coherence and identify unreliable estimates (See OpenCV [documentation](https://docs.opencv.org/trunk/d1/da0/tutorial_remap.html)).
+
+An **empirical uncertainty threshold** is derived from stable terrain by taking the 95th percentile of the forward–backward inconsistency values measured over stable valid pixels. Pixels below that threshold are classified as **low uncertainty**. This is used as a ***low_uncertainty_mask*** defined over valid pixels with finite uncertainty values not exceeding the stable-area 95th percentile. A more restrictive ***reliable_motion_mask*** is then created by additionally excluding stable terrain and requiring a minimum flow magnitude greater than 0.25 pixels, so that only non-stable, sufficiently strong, and low-uncertainty vectors are retained for interpretation. This reduces the influence of weak or noisy vectors.
+
+In addition to the pointwise filtering, **coarse uncertainty-aware layers** is build for visualization and spatial interpretation. This is done with a block-based aggregation function (`build_coarse_field`) that divides the image into regular windows and computes the **median** horizontal component, vertical component, and uncertainty of the reliable vectors inside each block. In the illustrated implementation, a coarse step of 40 pixels is used, with a minimum number of reliable samples required per block before aggregation. The coarse products include: (i) coarse displacement magnitude, (ii) coarse movement direction, (iii) quiver vectors summarizing the dominant reliable motion in each block, and (iv) overlays of these products on the grayscale or RGB orthophoto context ([Figure 9](#opticalflow)). This aggregation does not change the raw dense-flow computation; rather, it converts the filtered dense field into a more interpretable mesoscale representation, suppressing pixel-scale scatter while preserving the dominant spatial pattern of reliable motion. 
+
+Finally, uncertainty over stable terrain was summarized statistically through metrics such as RMSE, median displacement, and the 95th percentile of displacement magnitude, again computed pairwise in the notebook. These statistics serve as reference levels for interpreting the active sectors: estimated displacement in the flux or flank areas becomes more credible when it is clearly larger than the residual motion measured over stable terrain. In this sense, the uncertainty framework supports both **quality control** and **comparative interpretation**, allowing the two sectors to be evaluated not only by the size of their signal but also by how strongly that signal rises above the local noise floor. 
+
+![uncertainty](../assets/images/project2/uncertainty_diagnostics_4panel.jpg)
+{: #uncertainty}
+*Figure 10. Example of the uncertainty-estimation workflow for a representative orthophoto pair. **(a)** Forward–backward flow inconsistency, used as a pointwise uncertainty indicator. **(b)** Stable terrain used to characterize the background uncertainty distribution and define the 95th-percentile threshold. **(c)** Reliable-motion mask obtained after retaining only low-uncertainty, non-stable pixels. **(d)** Coarse aggregated displacement product derived from the filtered vectors for spatial interpretation.*
+
+### 5.6. Temporal and Spatial Analysis
 
 After pairwise products were generated, the results were summarized separately for the two analysis areas through time. For each consecutive orthophoto pair and for each polygon, the workflow extracted metrics such as detected change area, false-change area over stable terrain, mean displacement magnitude, high-percentile displacement, and mean movement direction in the detected change zone. These summaries allowed the temporal evolution of both sectors to be compared directly.
-Special attention was given to the contrast between the flank and flux sectors. Because these two areas represent different deformation styles, their comparison is central to the methodological objective of evaluating algorithm performance under different kinematic conditions. The expectation is that the debris-flow-like sector should show larger and more variable signals, while the eastern flank should exhibit smaller, more coherent, and slower changes.
-Direction was analyzed through time using time-series plots and direction histograms. These products help assess whether the estimated motion remains spatially and temporally coherent or whether it is highly scattered, which could indicate weak signal or algorithmic instability. In addition, spatial aggregation through time was used to derive recurrence maps, mean displacement maps, and temporal variability maps. Recurrence maps show how often a pixel was detected as changed across all consecutive pairs, mean displacement maps summarize the average magnitude of estimated motion, and variability maps show how stable or intermittent that motion was over time.
-This subsection should include: (i) time series by area, (ii) direction-through-time plots, (iii) direction histograms, and (iv) spatial summary maps for recurrence, mean displacement, and variability.
 
-### Rainfall Analysis
+Special attention was given to the contrast between the flank and flux sectors. Because these two areas represent different deformation styles, their comparison is central to the methodological objective of evaluating algorithm performance under different kinematic conditions. The expectation is that the debris-flow-like sector should show larger and more variable signals, while the eastern flank should exhibit smaller, more coherent, and slower changes.
+
+Direction was analyzed through time using time-series plots and direction histograms. These products help assess whether the estimated motion remains spatially and temporally coherent or whether it is highly scattered, which could indicate weak signal or algorithmic instability. In addition, spatial aggregation through time was used to derive recurrence maps, mean displacement maps, and temporal variability maps. Recurrence maps show how often a pixel was detected as changed across all consecutive pairs, mean displacement maps summarize the average magnitude of estimated motion, and variability maps show how stable or intermittent that motion was over time.
+
+### 5.7. Rainfall Analysis
 
 To support interpretation of the image-based results, precipitation data were incorporated as an external temporal control. On the Rosas project page, rainfall for the study area is described using data from the Párraga meteorological station managed by IDEAM, including daily precipitation and accumulated rainfall preceding the January 2023 event. The same logic is appropriate here: rainfall is not used to derive displacement directly, but to help interpret whether periods of increased image-based activity coincide with wet conditions or with cumulative antecedent rainfall.
-The rainfall analysis should therefore include daily precipitation, cumulative rainfall between image dates, and an antecedent rainfall metric such as 7-day accumulation. Daily rainfall provides short-term forcing, cumulative rainfall between image dates relates directly to the image comparison interval, and antecedent rainfall helps account for progressive saturation effects that may influence landslide reactivation. This is especially relevant in complex landslides, where deformation may continue or intensify after rainfall due to delayed hydrological response.
-A suitable interpretation sentence is:
-Rainfall was incorporated as contextual information to examine whether periods with larger mapped change or displacement were associated with short-term precipitation peaks or with antecedent wet conditions that may have promoted landslide reactivation.
 
-## Results
+The rainfall analysis should therefore include daily precipitation, cumulative rainfall between image dates, and an antecedent rainfall metric such as 7-day accumulation. Daily rainfall provides short-term forcing, cumulative rainfall between image dates relates directly to the image comparison interval, and antecedent rainfall helps account for progressive saturation effects that may influence landslide reactivation. This is especially relevant in complex landslides, where deformation may continue or intensify after rainfall due to delayed hydrological response.
+
+## 6. Results
 
 This section should present the evidence clearly.
 
@@ -288,6 +307,7 @@ A good conclusion usually answers the objectives explicitly.
 - Hussain, M. et al. (2013). Change detection from remotely sensed images: From pixel-based to object-based approaches.
 - Horn, B. K. P., & Schunck, B. G. (1981). Determining Optical Flow.
 - Farnebäck, G. (2003). *Two-Frame Motion Estimation Based on Polynomial Expansion*.
+- Mueting, A., et al. (2024). *Tracking slow-moving landslides with PlanetScope data*.
 
 ---
 
