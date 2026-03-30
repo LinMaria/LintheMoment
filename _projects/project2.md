@@ -196,9 +196,7 @@ The rainfall analysis should therefore include daily precipitation, cumulative r
 
 ## 6. Results
 
-This section should present the evidence clearly.
-
-A useful structure:
+structure:
 
 ### 6.1. Change Detection vs. Dense Displacement
 
@@ -241,14 +239,7 @@ Present:
 - temporal variability maps
 - comparison between flank and flux
 
-
-Be careful:
-
-- do not overclaim causality unless the evidence is strong
-
 ## 7. Discussion & Conclusiones
-
-This is where you interpret the results, not just repeat them.
 
 Possible topics:
 
@@ -259,7 +250,7 @@ Possible topics:
 - whether rainfall appears related to increased activity
 - what the uncertainty analysis reveals about confidence in the results
 
-Also discuss limitations:
+discuss limitations:
 
 - sensitivity to illumination and vegetation
 - temporal gaps between image dates
@@ -267,19 +258,8 @@ Also discuss limitations:
 - dependence on image quality and alignment
 - limitations of optical flow in texture-poor zones
 
-This section is excellent for showing critical thinking, which is very valuable in an internship report.
 
 
-Keep this section direct.
-
-Summarize:
-
-- what you built
-- what worked well
-- the main technical findings
-- the most important geomorphic or practical insight
-
-A good conclusion usually answers the objectives explicitly.
 
 ## References
 
