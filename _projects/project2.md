@@ -200,23 +200,7 @@ This section should present the evidence clearly.
 
 A useful structure:
 
-### 8.1 Alignment Results
-
-What to present:
-
-- visual examples
-- improvement in residual error
-- comments on image pairs that were harder to align
-
-### 8.2 Change Detection Results
-
-Present:
-
-- maps of change masks
-- tables of change area per interval
-- comparison between flank and flux
-
-### 8.3 Dense Displacement Results
+### 6.1. Change Detection vs. Dense Displacement
 
 Present:
 
@@ -225,17 +209,19 @@ Present:
 - quiver plots
 - coarse low-uncertainty vector fields
 
-### 8.4 Uncertainty Results
+### 6.2. Temporal Behavior
 
-Present:
+![timeseries](../assets/images/project2/timeseries.jpg)
+{: #timeseries}
+*Figure X
 
-- stable-area RMSE
-- stable-area false-change area
-- pointwise flow uncertainty
-- effect of filtering high-uncertainty points
+![direction](../assets/images/project2/direction.jpg)
+{: #direction}
+*Figure X
 
-### 8.5 Temporal Behavior
-
+![directionhist](../assets/images/project2/directionhistogram.jpg)
+{: #directionhist}
+*Figure X
 Present:
 
 - time series of change area
@@ -243,8 +229,11 @@ Present:
 - time series of direction
 - direction histograms by area
 
-### 8.6 Spatial Behavior
+### 6.3. Spatial Behavior
 
+![recurrence](../assets/images/project2/recurrenceSpatial.jpg)
+{: #recurrence}
+*Figure X
 Present:
 
 - recurrence maps
@@ -252,20 +241,12 @@ Present:
 - temporal variability maps
 - comparison between flank and flux
 
-### 8.7 Rainfall Relation
-
-Present:
-
-- daily rainfall panel
-- pairwise precipitation totals
-- antecedent rainfall
-- discuss visually whether higher rainfall aligns with stronger movement or more change
 
 Be careful:
 
 - do not overclaim causality unless the evidence is strong
 
-## Discussion
+## 7. Discussion & Conclusiones
 
 This is where you interpret the results, not just repeat them.
 
@@ -288,7 +269,6 @@ Also discuss limitations:
 
 This section is excellent for showing critical thinking, which is very valuable in an internship report.
 
-## Conclusions
 
 Keep this section direct.
 
