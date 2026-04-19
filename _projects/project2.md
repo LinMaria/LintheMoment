@@ -174,11 +174,13 @@ An **empirical uncertainty threshold** is derived from stable terrain by taking 
 
 In addition to the pointwise filtering, **coarse uncertainty-aware layers** is build for visualization and spatial interpretation. This is done with a block-based aggregation function (`build_coarse_field`) that divides the image into regular windows and computes the **median** horizontal component, vertical component, and uncertainty of the reliable vectors inside each block. In the illustrated implementation, a coarse step of 40 pixels is used, with a minimum number of reliable samples required per block before aggregation. The coarse products include: (i) coarse displacement magnitude, (ii) coarse movement direction, (iii) quiver vectors summarizing the dominant reliable motion in each block, and (iv) overlays of these products on the grayscale or RGB orthophoto context ([Figure 9](#opticalflow)). This aggregation does not change the raw dense-flow computation; rather, it converts the filtered dense field into a more interpretable mesoscale representation, suppressing pixel-scale scatter while preserving the dominant spatial pattern of reliable motion. 
 
-Finally, uncertainty over stable terrain was summarized statistically through metrics such as RMSE, median displacement, and the 95th percentile of displacement magnitude, again computed pairwise in the notebook. These statistics serve as reference levels for interpreting the active sectors: estimated displacement in the flux or flank areas becomes more credible when it is clearly larger than the residual motion measured over stable terrain. In this sense, the uncertainty framework supports both **quality control** and **comparative interpretation**, allowing the two sectors to be evaluated not only by the size of their signal but also by how strongly that signal rises above the local noise floor. 
+Finally, uncertainty over stable terrain was summarized statistically through metrics such as RMSE, median displacement, and the 95th percentile of displacement magnitude. These statistics serve as reference levels for interpreting the active sectors: estimated displacement in the flux or flank areas becomes more credible when it is clearly larger than the residual motion measured over stable terrain. In this sense, the uncertainty framework supports both **quality control** and **comparative interpretation**, allowing the two sectors to be evaluated not only by the size of their signal but also by how strongly that signal rises above the local noise floor. 
 
 ![uncertainty](../assets/images/project2/uncertainty_diagnostics_4panel.jpg)
 {: #uncertainty}
 *Figure 10. Example of the uncertainty-estimation workflow for a representative orthophoto pair. **(a)** Forward–backward flow inconsistency, used as a pointwise uncertainty indicator. **(b)** Stable terrain used to characterize the background uncertainty distribution and define the 95th-percentile threshold. **(c)** Reliable-motion mask obtained after retaining only low-uncertainty, non-stable pixels. **(d)** Coarse aggregated displacement product derived from the filtered vectors for spatial interpretation.*
+
+In order to distinguish meaningful motion from background residual displacement, a pair-specific significance threshold was derived from stable terrain. For each orthophoto pair, displacement magnitude was evaluated over stable and valid pixels, and the 95th percentile of that distribution was used as the threshold for significant displacement. A pixel was considered to exhibit significant displacement only if it belonged to the reliable-motion set after uncertainty filtering and if its displacement magnitude exceeded the stable-terrain 95th percentile for that image pair. This definition makes the displacement criterion adaptive to the noise level of each comparison.
 
 ### 5.6. Temporal and Spatial Analysis
 
@@ -188,6 +190,20 @@ Special attention was given to the contrast between the flank and flux sectors. 
 
 Direction was analyzed through time using time-series plots and direction histograms. These products help assess whether the estimated motion remains spatially and temporally coherent or whether it is highly scattered, which could indicate weak signal or algorithmic instability. In addition, spatial aggregation through time was used to derive recurrence maps, mean displacement maps, and temporal variability maps. Recurrence maps show how often a pixel was detected as changed across all consecutive pairs, mean displacement maps summarize the average magnitude of estimated motion, and variability maps show how stable or intermittent that motion was over time.
 
+To compare the binary change-detection product with the dense displacement field, the latter was converted into a binary significant-displacement mask using the uncertainty-based threshold described in Section 5.5. Thus, for each image pair and for each analysis area, two binary products were available: the change mask $\mathbf{C(x)}$ and the significant-displacement mask $\mathbf{S(x)}$. These masks were compared pixel by pixel in order to identify areas where both methods agreed and areas where they differed.
+
+The comparison was summarized using four pixel classes: (i) pixels classified as changed and showing significant displacement *((C=1, D=1))*, (ii) pixels classified as changed but not showing significant displacement *((C=1, D=0))*, (iii) pixels not classified as changed but showing significant displacement *((C=0, D=1))*, and (iv) pixels classified as neither changed nor significantly displaced *((C=0, D=0))*. These classes were used to evaluate whether radiometric or textural change identified by the binary mask was accompanied by measurable motion in the dense displacement field.
+
+Agreement between both products was quantified using conditional overlap metrics and a symmetric overlap index. The fraction of changed pixels that also showed significant displacement was computed as $\mathbf{(P(D \mid C))}$, while the fraction of significant-displacement pixels that were also classified as changed was computed as $\mathbf{(P(C \mid D))}$:
+
+$$
+\mathbf{P(D \mid C)} = \mathbf{\frac{|C \cap D|}{|C|}}
+$$
+
+$$
+\mathbf{P(C \mid D)} =\mathbf{\frac{|C \cap D|}{|D|}}
+$$
+
 ### 5.7. Rainfall Analysis
 
 To support interpretation of the image-based results, precipitation data were incorporated as an external temporal control. On the Rosas project page, rainfall for the study area is described using data from the Párraga meteorological station managed by IDEAM, including daily precipitation and accumulated rainfall preceding the January 2023 event. The same logic is appropriate here: rainfall is not used to derive displacement directly, but to help interpret whether periods of increased image-based activity coincide with wet conditions or with cumulative antecedent rainfall.
@@ -196,18 +212,37 @@ The rainfall analysis should therefore include daily precipitation, cumulative r
 
 ## 6. Results
 
-structure:
+### 6.1 Change Detection Results vs. Dense Displacement Results
 
-### 6.1. Change Detection vs. Dense Displacement
+As shown in [Figure 11](#seriespslc) (top), the overall values of $\mathbf{P(D \mid C)}$ remain below 0.5. This indicates that, in most image pairs, fewer than half of the pixels classified as change also exhibited significant displacement. The first six dates, in particular, show especially low overlap values. This pattern is consistent with the results in [Figure 12](#chavsdis), where these same dates are characterized by generally small areas of both detected change and significant displacement, and especially by very small values of class *i* (in red: pixels classified as changed and showing significant displacement).
 
-Present:
+Overall, these results suggest that the change-detection algorithm has limited ability to isolate physically meaningful change in the early image pairs and, in several cases, appears to confuse shadow variations with actual terrain change. As illustrated in [Figure 12](#chavsdis), the first six dates show only a small number of pixels classified as having significant displacement (blue and red classes). However, for the pair 2023-02-03 to 2023-02-06, there is a noticeable increase in the area classified as changed without significant displacement. This pattern is consistent with false detections caused by shadow changes or illumination differences rather than by real surface motion. In contrast, the dense displacement algorithm performed more robustly in this case, as it did not indicate significant movement where no meaningful displacement was present.
 
-- magnitude maps
-- direction maps
-- quiver plots
-- coarse low-uncertainty vector fields
+![seriesPSlC](../assets/images/project2/P_SlC_timeline.png)
+{: #seriespslc}
+*Figure 11
 
-### 6.2. Temporal Behavior
+Regarding $\mathbf{P(C \mid D)}$, the first six image pairs exhibit low values, reflecting the small number of pixels with significant displacement during this period. For the later dates, when the area affected by significant movement increased, $\mathbf{P(C \mid D)}$ also increased, indicating that more of the significantly displaced pixels were simultaneously identified as changed. Nevertheless, the values remained mostly below 0.5, which points to a generally low spatial correspondence between the change-detection and dense-displacement results. The only clear exception is the second-to-last image pair, where the correlation becomes comparatively high. This is also evident in [Figure 12](#chavsdis), where a large proportion of pixels were classified both as changed and as presenting significant displacement. This agreement is especially marked in the flank zone, where both methods appear to capture the same active pattern more consistently.
+
+![chavsdis](../assets/images/project2/Change_vs_displacemen_area_by_date.png)
+{: #chavsdis}
+*Figure 12
+
+When comparing the two analysis areas, only one consistent pattern clearly stands out. The correlation between pixels with significant displacement that were also classified as changed, $\mathbf{P(C \mid D)}$, was systematically higher in the flank than in the flux area ([Figure 11](#seriespslc)). This suggests that, in the flank zone, the two methods were more likely to identify the same pixels as active.
+
+A likely explanation is the different spatial character of deformation in the two sectors. In the flank area, both the change mask and the dense displacement field tend to be concentrated in more coherent and spatially confined regions. In contrast, in the flux area, the pixels identified by both methods appear more scattered and diffuse. This difference can be seen, for example, in [Figure 13](#scatteredflux), where the detected activity in the flux sector is spatially dispersed rather than concentrated in a well-defined pattern.
+
+![scatteredflux](../assets/images/project2/change_displacement_summary_3x2_2023-03-06_to_2023-03-21.jpg)
+{: #scatteredflux}
+*Figure 13
+
+### 6.3. Uncertanty
+
+![noisetoratio](../assets/images/project2/NoiseToRatio.png)
+{: #noisetoratio}
+*Figure 14
+
+### 6.3. Temporal Behavior
 
 ![timeseries](../assets/images/project2/timeseries.jpg)
 {: #timeseries}
@@ -239,7 +274,159 @@ Present:
 - temporal variability maps
 - comparison between flank and flux
 
+
+.
+.
+.
+
+---------------------
+
+### 6.2 Uncertainty
+
+I would keep this as a separate subsection, even if the current website outline does not yet list it, because the notebook has enough uncertainty material to justify it. The notebook explicitly treats stable terrain as the empirical error reference and computes false change in stable ground, plus stable-flow residuals summarized by RMSE, median, and p95. ([GitHub][2])
+
+How to write it:
+
+* first explain the uncertainty indicators,
+* then show whether the detected signal in the active zones is clearly above those indicators,
+* then mention whether some pairs are noisier than others.
+
+How to interpret your existing time-series uncertainty logic:
+
+* if **detected change area** is similar to the **stable false-change area**, that pair is weak,
+* if **change-zone mean displacement** is only as large as **stable-flow RMSE**, the motion signal is weak,
+* if **change-zone p95 displacement** is clearly higher than stable p95, the upper-end motion is stronger than the noise floor. The notebook itself already includes these reading rules. ([GitHub][2])
+
+The most useful figure here would be a **two-panel uncertainty summary**:
+
+* top: detected change area with stable false-change area as error bars,
+* bottom: mean displacement in the change zone with stable-flow RMSE as error bars and p95 as a second line.
+
+That is already essentially in your notebook and should definitely appear in the results chapter. ([GitHub][2])
+
+A very useful extra chart would be a **signal-to-noise ratio plot**:
+
+* `detected_change_area / stable_false_change_area`
+* `change_zone_p95_disp / stable_flow_p95`
+
+Those two ratios would make your interpretation much sharper.
+
+### 6.3 Temporal Behavior
+
+This subsection should answer: **when did activity intensify or weaken?**
+
+Your notebook already builds a time series across consecutive pairs and stores `dt_days`, detected change area, stable false change area, stable-flow RMSE, change-zone mean displacement, and change-zone p95 displacement. That is enough to write a basic temporal results subsection now. ([GitHub][2])
+
+How to interpret the current temporal chart:
+
+* peaks in **detected change area** indicate dates with broader surface modification,
+* peaks in **mean displacement** indicate stronger average motion within changed areas,
+* peaks in **p95 displacement** indicate intense motion in the upper tail, even if the mean is moderate,
+* dates with large uncertainty bars should be described more cautiously. ([GitHub][2])
+
+What I would add before writing this subsection:
+
+* normalize by time interval, because your pairs have different `dt_days`,
+* compute `change_area_per_day`,
+* compute `mean_disp_per_day` or `p95_disp_per_day`.
+
+Without that normalization, a long interval may look more active simply because more time passed. The notebook already stores `dt_days`, so that addition is straightforward. ([GitHub][2])
+
+A very meaningful extra chart here would be a **rainfall + activity figure**, because your methodology explicitly includes precipitation comparison, but I did not see rainfall processing in the notebook excerpt I reviewed. If you add rainfall, the strongest layout is:
+
+* bars for daily or accumulated rainfall,
+* line for change area,
+* line for p95 displacement,
+  with the same x-axis. Your methodology page already frames rainfall as contextual information for interpreting reactivation. ([linmaria.github.io][1])
+
+### 6.4 Spatial Behavior
+
+This subsection should answer: **where does activity persist?**
+
+Your notebook already computes three very useful spatial products across all consecutive pairs:
+
+* **change recurrence**,
+* **mean displacement magnitude**,
+* **temporal variability of displacement**. ([GitHub][2])
+
+These are excellent results figures, and you should definitely use them.
+
+How to interpret them:
+
+* **high recurrence** means repeated detection over many pairs, so the signal is persistent,
+* **high mean magnitude** means consistently stronger apparent motion,
+* **high temporal variability** means the area is episodic or unstable in time rather than steadily active. ([GitHub][2])
+
+A strong interpretive sentence would be:
+
+> “Pixels combining high recurrence and high mean displacement represent the most persistent active zones, whereas pixels with high variability but lower recurrence suggest intermittent or short-lived deformation.”
+
+That interpretation is directly consistent with the notebook’s own notes. ([GitHub][2])
+
+The best improvement here is to compute those three maps **separately for flow and flank** and present them with identical color scales. That will make the geomorphic contrast central to the chapter instead of secondary.
+
+## How to interpret your current charts
+
+For the alignment residual figure, do not over-discuss it in results. Just say that residual grayscale difference over stable terrain decreased after fine alignment, which supports the use of the aligned orthophotos for subsequent pairwise comparison. That figure is more of a methods-validation figure than a main result. ([GitHub][2])
+
+For the change-mask / dense-field comparison figure, focus on three things:
+
+* spatial agreement,
+* coherence of direction,
+* whether the dense field reveals internal kinematics not visible in the binary mask. ([GitHub][2])
+
+For the uncertainty time series, emphasize whether peaks in activity remain clearly above uncertainty bars. If they do, write them as robust episodes. If not, describe them as weak or ambiguous signals. ([GitHub][2])
+
+For the recurrence / mean / variability maps, describe the **pattern**, not just the colors: concentrated core activity, lateral persistence, diffuse vs. confined deformation, and whether the highest variability coincides with the most active corridor. ([GitHub][2])
+
+## The most meaningful additional charts
+
+The best additions are not random extra figures; they should close the gap between your objectives and the current notebook.
+
+First, add **flow vs. flank paired time series**. Since the project is framed around contrasting behavior between those two sectors, this is the single most important addition. Plot change area, mean displacement, and p95 displacement for both sectors on the same axes. ([linmaria.github.io][1])
+
+Second, add a **signal-to-uncertainty ratio plot**. This will help you say not only “activity increased,” but also “activity was convincingly above the noise floor.”
+
+Third, add a **change-area vs. displacement scatter plot** by sector. This helps reveal whether one sector tends to show broad-but-moderate change and the other compact-but-strong motion.
+
+Fourth, add **direction histograms or rose diagrams** by sector. Your notebook computes direction for each pixel but does not yet summarize it sector-wise. This would be very informative because the flank is expected to be more coherent, while the flow-like sector may be more dispersed. ([GitHub][2])
+
+Fifth, add **valid-count / reliable-count maps**. Recurrence alone can be misleading if some pixels were not equally observed or were frequently filtered out. A valid-count layer would make the spatial summaries more defensible.
+
+## What I would change in the notebook before you write
+
+The notebook is already enough to draft results, but before writing I would add four small upgrades:
+
+1. sector masks for **flow** and **flank**, because your objectives are comparative, not just descriptive. ([linmaria.github.io][1])
+2. interval-normalized metrics using `dt_days`, so temporal comparisons are fair. ([GitHub][2])
+3. direction summaries by sector, because dense flow is not only magnitude. ([GitHub][2])
+4. rainfall integration, because it is already part of your methodology and would strengthen temporal interpretation. ([linmaria.github.io][1])
+
+## Recommended final figure set
+
+A clean final results chapter could work very well with these figures:
+
+* one representative pair showing change mask + dense flow products,
+* one uncertainty time series figure,
+* one sector-comparison time series figure,
+* one rainfall + activity figure,
+* one scatter plot of change area vs displacement by sector,
+* one direction histogram / rose figure,
+* one spatial summary figure for recurrence, mean magnitude, and variability.
+
+That is enough to make the results feel complete without becoming repetitive.
+
+The shortest diagnosis is this: you do **not** need many more kinds of analysis; you mainly need to make the current analyses **sector-specific**, normalize the temporal series by interval length, and add one or two summary plots that directly compare signal against uncertainty. That would make your results chapter match your objectives much more tightly. ([linmaria.github.io][1])
+
+I can help you next by turning this into a **subsection-by-subsection writing template** for 6.1 to 6.4, with ready-to-fill paragraph starters.
+
+[1]: https://linmaria.github.io/LintheMoment/project2/ "Multi-Temporal UAV Change Detection and Dense Displacement Mapping for Monitoring a Complex Landslide - Lina María Pérez"
+[2]: https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb "raw.githubusercontent.com"
+
+
 ## 7. Discussion & Conclusiones
+
+- The behavior of the binary change-detection algorithm is consistent with the underlying method. Because the workflow is based on grayscale image differencing and thresholding, it is sensitive to radiometric variations between acquisition dates. In several pairs, cast shadows or illumination differences produced intensity changes large enough to be classified as terrain change, leading to false positives. At the same time, subtle but real deformation may remain below the detection threshold, especially where the surface texture is preserved. Thus, the binary mask should be interpreted as a map of significant appearance change rather than a direct measure of ground displacement.
 
 Possible topics:
 
