@@ -37,7 +37,7 @@
 
 
 
-  <meta property="article:published_time" content="2026-04-20T15:21:52+02:00">
+  <meta property="article:published_time" content="2026-04-20T22:39:26+02:00">
 
 
 
@@ -202,7 +202,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Multi-Temporal UAV Change Detection and Dense Displacement Mapping for Monitoring a Complex Landslide">
     <meta itemprop="description" content=".">
-    <meta itemprop="datePublished" content="2026-04-20T15:21:52+02:00">
+    <meta itemprop="datePublished" content="2026-04-20T22:39:26+02:00">
     
 
     <div class="page__inner-wrap">
@@ -213,7 +213,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-objectives">2. Objectives</a><ul><li><a href="#21-general-objective">2.1. General objective</a></li><li><a href="#22-specific-objectives">2.2. Specific objectives</a></li><li><a href="#3-study-area">3. Study Area</a></li></ul></li><li><a href="#4-data">4. Data</a></li><li><a href="#5-methodology">5. Methodology</a><ul><li><a href="#51-fine-alignment-of-images">5.1. Fine Alignment of Images</a></li><li><a href="#52-pre-processing">5.2. Pre-Processing</a></li><li><a href="#53-change-detection">5.3. Change Detection</a></li><li><a href="#54-dense-displacement-field">5.4. Dense Displacement Field</a></li><li><a href="#55-uncertainty-estimation">5.5. Uncertainty Estimation</a></li><li><a href="#56-temporal-and-spatial-analysis">5.6. Temporal and Spatial Analysis</a></li><li><a href="#57-rainfall-analysis">5.7. Rainfall Analysis</a></li></ul></li><li><a href="#6-results">6. Results</a><ul><li><a href="#61-change-detection-results-vs-dense-displacement-results">6.1 Change Detection Results vs. Dense Displacement Results</a></li><li><a href="#63-uncertanty">6.3. Uncertanty</a></li><li><a href="#63-temporal-behavior">6.3. Temporal Behavior</a></li><li><a href="#63-spatial-behavior">6.3. Spatial Behavior</a></li><li><a href="#62-uncertainty">6.2 Uncertainty</a></li><li><a href="#63-temporal-behavior-1">6.3 Temporal Behavior</a></li><li><a href="#64-spatial-behavior">6.4 Spatial Behavior</a></li></ul></li><li><a href="#how-to-interpret-your-current-charts">How to interpret your current charts</a></li><li><a href="#the-most-meaningful-additional-charts">The most meaningful additional charts</a></li><li><a href="#what-i-would-change-in-the-notebook-before-you-write">What I would change in the notebook before you write</a></li><li><a href="#recommended-final-figure-set">Recommended final figure set</a></li><li><a href="#7-discussion--conclusiones">7. Discussion &amp; Conclusiones</a></li><li><a href="#references">References</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-objectives">2. Objectives</a><ul><li><a href="#21-general-objective">2.1. General objective</a></li><li><a href="#22-specific-objectives">2.2. Specific objectives</a></li><li><a href="#3-study-area">3. Study Area</a></li></ul></li><li><a href="#4-data">4. Data</a></li><li><a href="#5-methodology">5. Methodology</a><ul><li><a href="#51-fine-alignment-of-images">5.1. Fine Alignment of Images</a></li><li><a href="#52-pre-processing">5.2. Pre-Processing</a></li><li><a href="#53-change-detection">5.3. Change Detection</a></li><li><a href="#54-dense-displacement-field">5.4. Dense Displacement Field</a></li><li><a href="#55-uncertainty-estimation">5.5. Uncertainty Estimation</a></li><li><a href="#56-temporal-and-spatial-analysis">5.6. Temporal and Spatial Analysis</a></li><li><a href="#57-rainfall-analysis">5.7. Rainfall Analysis</a></li></ul></li><li><a href="#6-results">6. Results</a><ul><li><a href="#61-change-detection-results-vs-dense-displacement-results">6.1 Change Detection Results vs. Dense Displacement Results</a></li><li><a href="#63-uncertanty">6.3. Uncertanty</a></li><li><a href="#63-temporal-behavior">6.3. Temporal Behavior</a></li><li><a href="#63-spatial-behavior">6.3. Spatial Behavior</a></li><li><a href="#64-spatial-behavior">6.4 Spatial Behavior</a></li></ul></li><li><a href="#how-to-interpret-your-current-charts">How to interpret your current charts</a></li><li><a href="#the-most-meaningful-additional-charts">The most meaningful additional charts</a></li><li><a href="#what-i-would-change-in-the-notebook-before-you-write">What I would change in the notebook before you write</a></li><li><a href="#recommended-final-figure-set">Recommended final figure set</a></li><li><a href="#7-discussion--conclusiones">7. Discussion &amp; Conclusiones</a></li><li><a href="#references">References</a></li></ul>
             </nav>
           </aside>
         
@@ -510,22 +510,26 @@ Alignment quality was evaluated by comparing the absolute grayscale residuals ov
 
 <h3 id="63-temporal-behavior">6.3. Temporal Behavior</h3>
 
-<p id="timeseries"><img src="../assets/images/project2/timeseries.jpg" alt="timeseries" /></p>
-<p>*Figure X</p>
+<p>Yes — here is a cleaner version with fewer references to the figure:</p>
 
-<p id="direction"><img src="../assets/images/project2/direction.jpg" alt="direction" /></p>
-<p>*Figure X</p>
+<p>The time-series results in <a href="#timeseries">Figure 16</a> indicate that the two study areas share a broadly similar temporal pattern during the first six image pairs, but then show a different behavior in the last five pairs. During the first six comparisons, both the flank and the flux exhibit low values of detected change area and low mean displacement, suggesting that activity during this initial period was generally weak. However, the 95th percentile of the displacement field shows marked peaks in the flank for the pairs 2023-01-20 to 2023-01-26 and 2023-02-03 to 2023-02-06. Examination of the spatial distribution of these high-magnitude vectors suggests that they correspond to very localized zones of deformation rather than to widespread movement across the full area. Thus, although the mean signal remains low during this first period, the p95 values indicate that small sectors may still have experienced concentrated displacement. Overall, however, both the detected change area and the average displacement remain low during these first six pairs, and in some dates they are close to zero.</p>
+
+<p>A different behavior emerges in the second part of the series, beginning with the pair 2023-02-26 to 2023-03-06. During this interval, both the detected change area and the displacement field exhibit a clear peak. This may reflect a genuine increase in slope movement, but it may also be influenced by the longer time interval between the two dates, since a greater (\Delta t) allows more displacement to accumulate and may therefore produce larger measured changes. The following image pairs also span relatively long intervals, which could likewise contribute to higher apparent displacement and larger detected change areas. Even so, a particularly clear increase is observed in the flux area between 2023-03-21 and 2023-03-30, where both the change mask and the displacement field indicate stronger activity. Inspection of the corresponding images confirms that this period was associated with substantial movement in both the flank and the flux sectors. The final image pair should be interpreted more cautiously, since it presents high uncertainty in most metrics. This elevated uncertainty may also be related to the longer temporal gap between the two acquisitions.</p>
+
+<p>With respect to precipitation, the relationship between rainfall and slope activity is not straightforward. In general, the rainfall pattern cannot be linked directly and consistently to the observed movement in the two study areas. The clearest possible association is the final major peak of activity between 2023-03-21 and 2023-03-30, which was preceded by approximately one month with many consecutive rainy days. This suggests that antecedent rainfall may have contributed to the increase in movement during that period, although the available results do not support a simple one-to-one correspondence between rainfall peaks and displacement peaks throughout the full series.</p>
+
+<p id="timeseries"><img src="../assets/images/project2/timeseries.jpg" alt="timeseries" /></p>
+<p><em>Figure 16. Time-series comparison of rainfall and landslide activity indicators in the flux and flank sectors. The panels show precipitation, detected change area, and displacement magnitude statistics (mean and 95th percentile) derived from the dense displacement field.</em></p>
+
+<p>Regarding movement direction, <a href="#directionhist">Figure 17</a> shows that the flank presents a consistent dominant orientation toward the <strong>west-southwest (WSW)</strong>. This pattern is geomorphologically plausible, since the slope in that sector faces approximately the same direction, and the displacement vectors would therefore be expected to contain a strong westward component. By contrast, the flux area also shows an overall tendency toward the west, but with a second important component in the opposite direction, toward the east. Since the debris-flow path is directed mainly toward the south, a stronger southward to southwestward displacement would have been expected. However, the algorithm detects very little motion in the north-south direction. This suggests that the method may be capturing lateral changes associated with the wandering of the river-bed channels, while failing to resolve rapid motion in the main flow direction.</p>
 
 <p id="directionhist"><img src="../assets/images/project2/RoseDiagram.png" alt="directionhist" /></p>
-<p>*Figure X
-Present:</p>
+<p><em>Figure 17. Direction histograms of the displacement vectors for the flank and flux sectors.</em></p>
 
-<ul>
-  <li>time series of change area</li>
-  <li>time series of displacement magnitude</li>
-  <li>time series of direction</li>
-  <li>direction histograms by area</li>
-</ul>
+<p>The temporal evolution of movement direction, shown in <a href="#direction">Figure 18</a>, indicates that directionality becomes clearer during the periods of stronger displacement. When higher magnitudes are detected, the estimated vectors are concentrated within a narrower directional range, with less scatter toward other azimuths. This suggests that the algorithm identifies movement direction more consistently when the deformation signal is stronger, whereas periods of weak displacement are associated with noisier and more dispersed directional estimates.</p>
+
+<p id="direction"><img src="../assets/images/project2/direction.png" alt="direction" /></p>
+<p><em>Figure 18. Temporal evolution of displacement-vector direction in the flank and flux areas.</em></p>
 
 <h3 id="63-spatial-behavior">6.3. Spatial Behavior</h3>
 
@@ -545,78 +549,6 @@ Present:</p>
 .</p>
 
 <hr />
-
-<h3 id="62-uncertainty">6.2 Uncertainty</h3>
-
-<p>I would keep this as a separate subsection, even if the current website outline does not yet list it, because the notebook has enough uncertainty material to justify it. The notebook explicitly treats stable terrain as the empirical error reference and computes false change in stable ground, plus stable-flow residuals summarized by RMSE, median, and p95. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</p>
-
-<p>How to write it:</p>
-
-<ul>
-  <li>first explain the uncertainty indicators,</li>
-  <li>then show whether the detected signal in the active zones is clearly above those indicators,</li>
-  <li>then mention whether some pairs are noisier than others.</li>
-</ul>
-
-<p>How to interpret your existing time-series uncertainty logic:</p>
-
-<ul>
-  <li>if <strong>detected change area</strong> is similar to the <strong>stable false-change area</strong>, that pair is weak,</li>
-  <li>if <strong>change-zone mean displacement</strong> is only as large as <strong>stable-flow RMSE</strong>, the motion signal is weak,</li>
-  <li>if <strong>change-zone p95 displacement</strong> is clearly higher than stable p95, the upper-end motion is stronger than the noise floor. The notebook itself already includes these reading rules. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</li>
-</ul>
-
-<p>The most useful figure here would be a <strong>two-panel uncertainty summary</strong>:</p>
-
-<ul>
-  <li>top: detected change area with stable false-change area as error bars,</li>
-  <li>bottom: mean displacement in the change zone with stable-flow RMSE as error bars and p95 as a second line.</li>
-</ul>
-
-<p>That is already essentially in your notebook and should definitely appear in the results chapter. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</p>
-
-<p>A very useful extra chart would be a <strong>signal-to-noise ratio plot</strong>:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">detected_change_area / stable_false_change_area</code></li>
-  <li><code class="language-plaintext highlighter-rouge">change_zone_p95_disp / stable_flow_p95</code></li>
-</ul>
-
-<p>Those two ratios would make your interpretation much sharper.</p>
-
-<h3 id="63-temporal-behavior-1">6.3 Temporal Behavior</h3>
-
-<p>This subsection should answer: <strong>when did activity intensify or weaken?</strong></p>
-
-<p>Your notebook already builds a time series across consecutive pairs and stores <code class="language-plaintext highlighter-rouge">dt_days</code>, detected change area, stable false change area, stable-flow RMSE, change-zone mean displacement, and change-zone p95 displacement. That is enough to write a basic temporal results subsection now. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</p>
-
-<p>How to interpret the current temporal chart:</p>
-
-<ul>
-  <li>peaks in <strong>detected change area</strong> indicate dates with broader surface modification,</li>
-  <li>peaks in <strong>mean displacement</strong> indicate stronger average motion within changed areas,</li>
-  <li>peaks in <strong>p95 displacement</strong> indicate intense motion in the upper tail, even if the mean is moderate,</li>
-  <li>dates with large uncertainty bars should be described more cautiously. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</li>
-</ul>
-
-<p>What I would add before writing this subsection:</p>
-
-<ul>
-  <li>normalize by time interval, because your pairs have different <code class="language-plaintext highlighter-rouge">dt_days</code>,</li>
-  <li>compute <code class="language-plaintext highlighter-rouge">change_area_per_day</code>,</li>
-  <li>compute <code class="language-plaintext highlighter-rouge">mean_disp_per_day</code> or <code class="language-plaintext highlighter-rouge">p95_disp_per_day</code>.</li>
-</ul>
-
-<p>Without that normalization, a long interval may look more active simply because more time passed. The notebook already stores <code class="language-plaintext highlighter-rouge">dt_days</code>, so that addition is straightforward. (<a href="https://raw.githubusercontent.com/LinMaria/Landslide_FeatureTracking/main/Notebooks/Intership2.ipynb" title="raw.githubusercontent.com">GitHub</a>)</p>
-
-<p>A very meaningful extra chart here would be a <strong>rainfall + activity figure</strong>, because your methodology explicitly includes precipitation comparison, but I did not see rainfall processing in the notebook excerpt I reviewed. If you add rainfall, the strongest layout is:</p>
-
-<ul>
-  <li>bars for daily or accumulated rainfall,</li>
-  <li>line for change area,</li>
-  <li>line for p95 displacement,
-with the same x-axis. Your methodology page already frames rainfall as contextual information for interpreting reactivation. (<a href="https://linmaria.github.io/LintheMoment/project2/" title="Multi-Temporal UAV Change Detection and Dense Displacement Mapping for Monitoring a Complex Landslide - Lina María Pérez">linmaria.github.io</a>)</li>
-</ul>
 
 <h3 id="64-spatial-behavior">6.4 Spatial Behavior</h3>
 
@@ -771,7 +703,7 @@ with the same x-axis. Your methodology page already frames rainfall as contextua
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-04-20T15:21:52+02:00">April 20, 2026</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-04-20T22:39:26+02:00">April 20, 2026</time></p>
 
       </footer>
 

@@ -256,23 +256,29 @@ As for the bottom left and bottom right panels in [Figure 15](#uncertres), these
 
 ### 6.3. Temporal Behavior
 
+Yes — here is a cleaner version with fewer references to the figure:
+
+The time-series results in [Figure 16](#timeseries) indicate that the two study areas share a broadly similar temporal pattern during the first six image pairs, but then show a different behavior in the last five pairs. During the first six comparisons, both the flank and the flux exhibit low values of detected change area and low mean displacement, suggesting that activity during this initial period was generally weak. However, the 95th percentile of the displacement field shows marked peaks in the flank for the pairs 2023-01-20 to 2023-01-26 and 2023-02-03 to 2023-02-06. Examination of the spatial distribution of these high-magnitude vectors suggests that they correspond to very localized zones of deformation rather than to widespread movement across the full area. Thus, although the mean signal remains low during this first period, the p95 values indicate that small sectors may still have experienced concentrated displacement. Overall, however, both the detected change area and the average displacement remain low during these first six pairs, and in some dates they are close to zero.
+
+A different behavior emerges in the second part of the series, beginning with the pair 2023-02-26 to 2023-03-06. During this interval, both the detected change area and the displacement field exhibit a clear peak. This may reflect a genuine increase in slope movement, but it may also be influenced by the longer time interval between the two dates, since a greater (\Delta t) allows more displacement to accumulate and may therefore produce larger measured changes. The following image pairs also span relatively long intervals, which could likewise contribute to higher apparent displacement and larger detected change areas. Even so, a particularly clear increase is observed in the flux area between 2023-03-21 and 2023-03-30, where both the change mask and the displacement field indicate stronger activity. Inspection of the corresponding images confirms that this period was associated with substantial movement in both the flank and the flux sectors. The final image pair should be interpreted more cautiously, since it presents high uncertainty in most metrics. This elevated uncertainty may also be related to the longer temporal gap between the two acquisitions.
+
+With respect to precipitation, the relationship between rainfall and slope activity is not straightforward. In general, the rainfall pattern cannot be linked directly and consistently to the observed movement in the two study areas. The clearest possible association is the final major peak of activity between 2023-03-21 and 2023-03-30, which was preceded by approximately one month with many consecutive rainy days. This suggests that antecedent rainfall may have contributed to the increase in movement during that period, although the available results do not support a simple one-to-one correspondence between rainfall peaks and displacement peaks throughout the full series.
+
 ![timeseries](../assets/images/project2/timeseries.jpg)
 {: #timeseries}
-*Figure X
+*Figure 16. Time-series comparison of rainfall and landslide activity indicators in the flux and flank sectors. The panels show precipitation, detected change area, and displacement magnitude statistics (mean and 95th percentile) derived from the dense displacement field.*
 
-![direction](../assets/images/project2/direction.jpg)
-{: #direction}
-*Figure X
+Regarding movement direction, [Figure 17](#directionhist) shows that the flank presents a consistent dominant orientation toward the **west-southwest (WSW)**. This pattern is geomorphologically plausible, since the slope in that sector faces approximately the same direction, and the displacement vectors would therefore be expected to contain a strong westward component. By contrast, the flux area also shows an overall tendency toward the west, but with a second important component in the opposite direction, toward the east. Since the debris-flow path is directed mainly toward the south, a stronger southward to southwestward displacement would have been expected. However, the algorithm detects very little motion in the north-south direction. This suggests that the method may be capturing lateral changes associated with the wandering of the river-bed channels, while failing to resolve rapid motion in the main flow direction.
 
 ![directionhist](../assets/images/project2/RoseDiagram.png)
 {: #directionhist}
-*Figure X
-Present:
+*Figure 17. Direction histograms of the displacement vectors for the flank and flux sectors.*
 
-- time series of change area
-- time series of displacement magnitude
-- time series of direction
-- direction histograms by area
+The temporal evolution of movement direction, shown in [Figure 18](#direction), indicates that directionality becomes clearer during the periods of stronger displacement. When higher magnitudes are detected, the estimated vectors are concentrated within a narrower directional range, with less scatter toward other azimuths. This suggests that the algorithm identifies movement direction more consistently when the deformation signal is stronger, whereas periods of weak displacement are associated with noisier and more dispersed directional estimates.
+
+![direction](../assets/images/project2/direction.png)
+{: #direction}
+*Figure 18. Temporal evolution of displacement-vector direction in the flank and flux areas.*
 
 ### 6.3. Spatial Behavior
 
@@ -293,63 +299,7 @@ Present:
 
 ---------------------
 
-### 6.2 Uncertainty
 
-I would keep this as a separate subsection, even if the current website outline does not yet list it, because the notebook has enough uncertainty material to justify it. The notebook explicitly treats stable terrain as the empirical error reference and computes false change in stable ground, plus stable-flow residuals summarized by RMSE, median, and p95. ([GitHub][2])
-
-How to write it:
-
-* first explain the uncertainty indicators,
-* then show whether the detected signal in the active zones is clearly above those indicators,
-* then mention whether some pairs are noisier than others.
-
-How to interpret your existing time-series uncertainty logic:
-
-* if **detected change area** is similar to the **stable false-change area**, that pair is weak,
-* if **change-zone mean displacement** is only as large as **stable-flow RMSE**, the motion signal is weak,
-* if **change-zone p95 displacement** is clearly higher than stable p95, the upper-end motion is stronger than the noise floor. The notebook itself already includes these reading rules. ([GitHub][2])
-
-The most useful figure here would be a **two-panel uncertainty summary**:
-
-* top: detected change area with stable false-change area as error bars,
-* bottom: mean displacement in the change zone with stable-flow RMSE as error bars and p95 as a second line.
-
-That is already essentially in your notebook and should definitely appear in the results chapter. ([GitHub][2])
-
-A very useful extra chart would be a **signal-to-noise ratio plot**:
-
-* `detected_change_area / stable_false_change_area`
-* `change_zone_p95_disp / stable_flow_p95`
-
-Those two ratios would make your interpretation much sharper.
-
-### 6.3 Temporal Behavior
-
-This subsection should answer: **when did activity intensify or weaken?**
-
-Your notebook already builds a time series across consecutive pairs and stores `dt_days`, detected change area, stable false change area, stable-flow RMSE, change-zone mean displacement, and change-zone p95 displacement. That is enough to write a basic temporal results subsection now. ([GitHub][2])
-
-How to interpret the current temporal chart:
-
-* peaks in **detected change area** indicate dates with broader surface modification,
-* peaks in **mean displacement** indicate stronger average motion within changed areas,
-* peaks in **p95 displacement** indicate intense motion in the upper tail, even if the mean is moderate,
-* dates with large uncertainty bars should be described more cautiously. ([GitHub][2])
-
-What I would add before writing this subsection:
-
-* normalize by time interval, because your pairs have different `dt_days`,
-* compute `change_area_per_day`,
-* compute `mean_disp_per_day` or `p95_disp_per_day`.
-
-Without that normalization, a long interval may look more active simply because more time passed. The notebook already stores `dt_days`, so that addition is straightforward. ([GitHub][2])
-
-A very meaningful extra chart here would be a **rainfall + activity figure**, because your methodology explicitly includes precipitation comparison, but I did not see rainfall processing in the notebook excerpt I reviewed. If you add rainfall, the strongest layout is:
-
-* bars for daily or accumulated rainfall,
-* line for change area,
-* line for p95 displacement,
-  with the same x-axis. Your methodology page already frames rainfall as contextual information for interpreting reactivation. ([linmaria.github.io][1])
 
 ### 6.4 Spatial Behavior
 
