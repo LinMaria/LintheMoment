@@ -238,9 +238,21 @@ A likely explanation is the different spatial character of deformation in the tw
 
 ### 6.3. Uncertanty
 
+The uncertainty analysis was evaluated using two complementary approaches. First, both products were assessed relative to the stable area, which served as an empirical reference for background error. Second, for the dense displacement field, uncertainty was further evaluated through a forward–backward consistency analysis. As shown in [Figure 14](#noisetoratio) (top), the signal-to-noise ratio (SNR) of the change mask remains close to 1 during the first six image pairs, indicating high uncertainty in the pixels classified as changed during this period. In practical terms, values near 1 mean that the amount of detected change in the active area is similar to the amount of false change measured in the stable area, so the signal cannot be clearly distinguished from the background noise. This is consistent with the overall behavior of the series, since the first six dates appear to exhibit less movement than the later image pairs. For the last five pairs, the SNR generally increases, indicating that the detected change becomes more clearly distinguishable from the stable-area reference, although the final pair again shows elevated uncertainty.
+
+In contrast, [Figure 14](#noisetoratio) (bottom) presents a measure of motion strength relative to residual displacement in stable terrain, based on the ratio between the 95th percentile displacement in the change zone and the 95th percentile displacement over the stable area. This plot shows that, from the second to the fifth image pair, the displacement field is relatively noisy, with values close to or only slightly above 1. This again agrees with the general observation that little movement was detected during those dates. For the remaining pairs, the ratio is generally above 1, which indicates that the upper range of motion in the active areas exceeds the stable-area residual motion. However, the values are still not consistently high, suggesting that the displacement estimates remain affected by a non-negligible level of noise relative to the stable reference. With respect to the two analysis areas, no clear systematic difference is observed between the flux and the flank. In some image pairs one area appears less uncertain, whereas in others the opposite occurs, so neither sector shows consistently lower uncertainty throughout the series.
+
 ![noisetoratio](../assets/images/project2/NoiseToRatio.png)
 {: #noisetoratio}
-*Figure 14
+*Figure 14. Pairwise signal-to-noise ratios for the change-detection and dense-displacement products. Top: ratio between detected change area and stable-area false change area. Bottom: ratio between the 95th percentile displacement magnitude in the changed zone and the 95th percentile displacement magnitude over stable terrain. Values above 1 indicate that the detected signal exceeds the background level measured in stable terrain.*
+
+Regarding the forward–backward analysis, [Figure 15](#uncertres) (top left and top right) shows that, for most image pairs, the 95th percentile of forward–backward inconsistency in the stable area is well above zero, indicating that a subset of stable pixels exhibits relatively high uncertainty. In contrast, the median inconsistency remains much lower for most dates, which suggests that the majority of stable pixels are characterized by low uncertainty, while the high values in the 95th percentile are driven by a smaller proportion of problematic pixels. This pattern is consistent with localized errors rather than with a uniformly poor displacement field. One likely explanation is that image deformation near the external borders, where geometric distortions and resampling effects are stronger, is being erroneously interpreted by the model as movement. The median values are mostly below 1 px, which can be considered relatively low inconsistency given that the ideal value on stable terrain would be zero. The main exception is the last pair of dates, which shows elevated inconsistency in both the 95th percentile and the median, indicating a more generalized decrease in flow reliability for that pair.
+
+As for the bottom left and bottom right panels in [Figure 15](#uncertres), these plots show the fraction of pixels classified as low-uncertainty after the forward–backward filtering. The lower left panel summarizes this fraction over all valid pixels, whereas the lower right panel shows the same metric separately for the two analysis areas. In general, all image pairs remain above 70%, and most are above 85%, except for the first pair, which presents a lower proportion of low-uncertainty pixels. This indicates that, despite the elevated upper-tail inconsistency observed in some dates, most pixels are still retained as reliable after filtering. With respect to the two analysis areas, the flux behaves as well as or slightly better than the flank in seven of the eleven image pairs, showing a greater proportion of low-uncertainty pixels during those dates.
+
+![uncertres](../assets/images/project2/uncertanty_results.png)
+{: #uncertres}
+*Figure 15. Pairwise uncertainty summary for the dense displacement field based on forward–backward consistency, including stable-area inconsistency metrics and the fraction of pixels retained as low-uncertainty in the full valid domain and in the active analysis areas.*
 
 ### 6.3. Temporal Behavior
 
@@ -252,7 +264,7 @@ A likely explanation is the different spatial character of deformation in the tw
 {: #direction}
 *Figure X
 
-![directionhist](../assets/images/project2/directionhistogram.jpg)
+![directionhist](../assets/images/project2/RoseDiagram.png)
 {: #directionhist}
 *Figure X
 Present:
@@ -427,6 +439,8 @@ I can help you next by turning this into a **subsection-by-subsection writing te
 ## 7. Discussion & Conclusiones
 
 - The behavior of the binary change-detection algorithm is consistent with the underlying method. Because the workflow is based on grayscale image differencing and thresholding, it is sensitive to radiometric variations between acquisition dates. In several pairs, cast shadows or illumination differences produced intensity changes large enough to be classified as terrain change, leading to false positives. At the same time, subtle but real deformation may remain below the detection threshold, especially where the surface texture is preserved. Thus, the binary mask should be interpreted as a map of significant appearance change rather than a direct measure of ground displacement.
+
+- In summary, the uncertainty analysis indicates that the binary change mask is strongly affected by noise, especially during the early image pairs, and is therefore less reliable as a standalone indicator of landslide activity. By contrast, the dense displacement field provides a more robust signal, although it still contains localized areas of elevated uncertainty. The forward–backward consistency results further show that uncertainty is mainly concentrated in a limited subset of pixels rather than being generalized across the full image domain. After filtering, most valid and active-area pixels remain classified as low-uncertainty, supporting the use of the dense displacement field as the more reliable product for interpreting deformation patterns in this study.
 
 Possible topics:
 
